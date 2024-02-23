@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "Departement";
+}
+
+<div class="card container my-5 py-5 z-depth-1">
+
+
+    <!--Section: Content-->
+    <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
+
+
+        <!--Grid row-->
+        <div class="row d-flex justify-content-center mb-4">
+
+            <!--Grid column-->
+            <div class="col-md-12 text-center">
+
+                <h2 class="display-4">Welcome to Departement Page</h2>
+                <h5>by Flory John Cartagena</h5>
+                @model IEnumerable<UserAccount>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Mobile Number</th>
+                            <th>Email Account</th>
+                            <th>Address</th>
+                            <th>Gender</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var userAcc in Model){
+                        <tr>
+                                <th scope="row">@userAcc.UserAccount_Id</th>
+                                <td>@userAcc.First_Name</td>
+                                <td>@userAcc.Last_Name</td>
+                                <td>@userAcc.Mobile</td>
+                                <td>@userAcc.Email_Account</td>
+                                <td>@userAcc.Account</td>
+                                <td>@userAcc.Gender</td>
+                            <td>
+                                <a type="button" class="btn btn-primary btn-icon-text" >
+                                    <i class="mdi mdi-file-check btn-icon-prepend"></i> Update
+                                </a>
+                                <button type="button" class="btn btn-danger btn-icon-text" data-toggle="modal" data-target="#deleteModal">
+                                    <i class="mdi mdi-alert btn-icon-prepend"></i> Delete
+                                </button>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+
+
+            </div>
+            <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+
+    </section>
+    <!--Section: Content-->
+
+
+</div>
