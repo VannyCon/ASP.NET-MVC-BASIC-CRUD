@@ -1,10 +1,15 @@
 # BASIC CRUD MVC ASP.NET
 ### Overview
 This Project is made up of MVC Asp.net, C# this will able you to made a registration and simple Register,Login,CRUD UserInformation.
+
 # Installation
 Clone the Repository:
 `git clone https://github.com/VannyCon/ASP.NET-MVC-BASIC-CRUD.git`
 
+# Needs
+XAMPP -> dont have password
+VISUAL STUDIO
+.NET 8.0+ -> Check you version in CMD type "dotnet -version"
 
 Navigate to the Project Directory:
 `cd ASP.NET-MVC-BASIC-CRUD`
