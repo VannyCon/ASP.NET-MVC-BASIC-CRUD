@@ -45,12 +45,12 @@
                             <td>@employee.Gender</td>
                             <td>@employee.Position</td>
                             <td>
-                                <a type="button" class="btn btn-outline-info btn-icon-text" >
+                                    <a asp-action="Edit" asp-route-id="@employee.Employee_Id" type="button" class="btn btn-outline-info btn-icon-text">
                                     <i class="mdi mdi-file-check btn-icon-prepend"></i> Update
                                 </a>
-                                <button type="button" class="btn btn-outline-danger btn-icon-text" data-toggle="modal" data-target="#deleteModal">
+                                    <a asp-action="Delete" asp-route-id="@employee.Employee_Id" data-toggle="modal" data-target="#deleteModal" class="btn btn-outline-danger btn-icon-text">
                                     <i class="mdi mdi-alert btn-icon-prepend"></i> Delete
-                                </button>
+                                </a>
                             </td>
                         </tr>
                       }
