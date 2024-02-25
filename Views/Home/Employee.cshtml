@@ -17,7 +17,7 @@
                 <h2 class="display-4">Welcome to Employee Page</h2>
                 <h5>by Ivan R. Contrevida</h5>
                 <div class="justify-content-end d-flex align-items-end">
-                    <a type="button" class="btn btn-outline-primary btn-icon-text justify-content-end align-items-end m-2">
+                    <a asp-area="" asp-controller="Home" asp-action="EmployeeCreate" type="button" class="btn btn-outline-primary btn-icon-text justify-content-end align-items-end m-2">
                         <i class="mdi mdi-file-check btn-icon-prepend"></i> + ADD
                     </a>
                 </div>
@@ -45,10 +45,10 @@
                             <td>@employee.Gender</td>
                             <td>@employee.Position</td>
                             <td>
-                                    <a asp-action="Edit" asp-route-id="@employee.Employee_Id" type="button" class="btn btn-outline-info btn-icon-text">
+                                <a asp-action="Edit" asp-route-id="@employee.Employee_Id" type="button" class="btn btn-outline-info btn-icon-text">
                                     <i class="mdi mdi-file-check btn-icon-prepend"></i> Update
                                 </a>
-                                    <a asp-action="Delete" asp-route-id="@employee.Employee_Id" data-toggle="modal" data-target="#deleteModal" class="btn btn-outline-danger btn-icon-text">
+                                <a asp-action="Delete" asp-route-id="@employee.Employee_Id" type="button" class="btn btn-outline-danger btn-icon-text">
                                     <i class="mdi mdi-alert btn-icon-prepend"></i> Delete
                                 </a>
                             </td>
@@ -56,7 +56,6 @@
                       }
                     </tbody>
                 </table>
-
 
             </div>
             <!--Grid column-->

@@ -21,6 +21,10 @@ namespace CRUD.Controllers
         {
             return View();
         }
+        public IActionResult EmployeeCreate()
+        {
+            return View();
+        }
         public IActionResult userLogin()
         {
             return View();
@@ -29,6 +33,7 @@ namespace CRUD.Controllers
         {
             return View();
         }
+
         public IActionResult UserInformation()
         {
             var users = _context.UserInfo.ToList();
