@@ -74,10 +74,18 @@ namespace CRUD.Controllers
             return View(employee);
         }
 
-        //DELETE
+
+        // DELETE
         public IActionResult Delete(int id)
         {
-            return PartialView("_DeleteConfirmation", id);
+            var employee = _context.Employee.Find(id);
+            _context.Employee.Remove(employee);
+            if (employee == null)
+            {
+                return NotFound();
+            }
+
+            return View(employee);
         }
 
         [HttpPost, ActionName("DeleteConfirmed")]
@@ -93,9 +101,9 @@ namespace CRUD.Controllers
             _context.Employee.Remove(employee);
             _context.SaveChanges();
 
-            return RedirectToAction(nameof(Employee)); ;
+            return RedirectToAction(nameof(Employee));
         }
 
-        
+
     }
 }

@@ -72,26 +72,34 @@ namespace CRUD.Controllers
             return View(designation);
         }
 
-        //DELETE
+
+        // DELETE
         public IActionResult Delete(int id)
         {
-            return PartialView("_DeleteConfirmation", id);
+            var designated = _context.Designation.Find(id);
+            _context.Designation.Remove(designated);
+            if (designated == null)
+            {
+                return NotFound();
+            }
+
+            return View(designated);
         }
 
         [HttpPost, ActionName("DeleteConfirmed")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            var designation = _context.Designation.Find(id);
-            if (designation == null)
+            var designated = _context.Designation.Find(id);
+            if (designated == null)
             {
                 return NotFound();
             }
 
-            _context.Designation.Remove(designation);
+            _context.Designation.Remove(designated);
             _context.SaveChanges();
 
-            return RedirectToAction(nameof(Designation)); ;
+            return RedirectToAction(nameof(Designation));
         }
     }
 }

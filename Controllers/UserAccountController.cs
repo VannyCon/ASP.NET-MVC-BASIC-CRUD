@@ -70,26 +70,33 @@ namespace CRUD.Controllers
             return View(userAcc);
         }
 
-        //DELETE
+        // DELETE
         public IActionResult Delete(int id)
         {
-            return PartialView("_DeleteConfirmation", id);
+            var userAccount = _context.UserAccount.Find(id);
+            _context.UserAccount.Remove(userAccount);
+            if (userAccount == null)
+            {
+                return NotFound();
+            }
+
+            return View(userAccount);
         }
 
         [HttpPost, ActionName("DeleteConfirmed")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            var userAcc = _context.UserAccount.Find(id);
-            if (userAcc == null)
+            var userAccount = _context.UserAccount.Find(id);
+            if (userAccount == null)
             {
                 return NotFound();
             }
 
-            _context.UserAccount.Remove(userAcc);
+            _context.UserAccount.Remove(userAccount);
             _context.SaveChanges();
 
-            return RedirectToAction(nameof(UserAccount)); ;
+            return RedirectToAction(nameof(UserAccount));
         }
     }
 }

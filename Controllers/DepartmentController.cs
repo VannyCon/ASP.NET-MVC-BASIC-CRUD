@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Linq;
 namespace CRUD.Controllers
 
 {
@@ -73,10 +74,19 @@ namespace CRUD.Controllers
             return View(department);
         }
 
-        //DELETE
+
+
+        // DELETE
         public IActionResult Delete(int id)
         {
-            return PartialView("_DeleteConfirmation", id);
+            var deptDel = _context.Departments.Find(id);
+            _context.Departments.Remove(deptDel);
+            if (deptDel == null)
+            {
+                return NotFound();
+            }
+
+            return View(deptDel);
         }
 
         [HttpPost, ActionName("DeleteConfirmed")]
@@ -92,7 +102,7 @@ namespace CRUD.Controllers
             _context.Departments.Remove(department);
             _context.SaveChanges();
 
-            return RedirectToAction(nameof(Department)); ;
+            return RedirectToAction(nameof(Department));
         }
     }
 }

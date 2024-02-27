@@ -1,0 +1,31 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!-- _DeleteConfirmation.cshtml -->
+@model Department
+
+<h2>Delete Employee</h2>
+<form asp-controller="Department" asp-action="DeleteConfirmed" asp-route-id="@Model.Department_Id" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="text" class="form-control" readonly asp-for="Department_Id" />
+
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" readonly class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Manager" class="control-label"></label>
+        <input asp-for="Manager" readonly class="form-control" />
+        <span asp-validation-for="Manager" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Location" class="control-label"></label>
+        <input asp-for="Location" readonly class="form-control" />
+        <span asp-validation-for="Location" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-danger m-2">Delete</button>
+</form>
+<a asp-action="Department">Back to List</a>
