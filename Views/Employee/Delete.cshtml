@@ -3,40 +3,39 @@
 *@
 @{
 }
+<!-- _DeleteConfirmation.cshtml -->
 @model Employee
 
-<h2>Edit Employee</h2>
-    <form asp-action="Edit">
+<h2>Delete Employee</h2>
+<form asp-controller="Employee" asp-action="DeleteConfirmed" asp-route-id="@Model.Employee_Id" method="post">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <input type="hidden" asp-for="Employee_Id" />
+    <input type="text" class="form-control" readonly asp-for="Employee_Id" />
 
         <div class="form-group">
             <label asp-for="First" class="control-label"></label>
-            <input asp-for="First" class="form-control" />
+        <input asp-for="First" readonly class="form-control" />
             <span asp-validation-for="First" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="Last" class="control-label"></label>
-            <input asp-for="Last" class="form-control" />
+        <input asp-for="Last" readonly class="form-control" />
             <span asp-validation-for="Last" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="Birthday" class="control-label"></label>
-            <input asp-for="Birthday" class="form-control" />
+        <input asp-for="Birthday" readonly class="form-control" />
             <span asp-validation-for="Birthday" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="Gender" class="control-label"></label>
-            <input asp-for="Gender" class="form-control" />
+        <input asp-for="Gender" readonly class="form-control" />
             <span asp-validation-for="Gender" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="Position" class="control-label"></label>
-            <input asp-for="Position" class="form-control" />
+        <input asp-for="Position" readonly class="form-control" />
             <span asp-validation-for="Position" class="text-danger"></span>
         </div>
-        <div class="form-group">
-            <input type="submit" value="Save" class="btn btn-primary" />
-        </div>
-    </form>
-<a asp-action="Index">Back to List</a>
+    <button type="submit" class="btn btn-danger m-2">Delete</button>
+</form>
+<a asp-action="Employee">Back to List</a>

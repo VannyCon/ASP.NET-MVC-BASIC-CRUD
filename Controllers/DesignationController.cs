@@ -2,43 +2,41 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+
 namespace CRUD.Controllers
-
 {
-    public class EmployeeController : Controller
+    public class DesignationController : Controller
     {
-        
         private readonly ApplicationDbContext _context;
-
-        public EmployeeController(ApplicationDbContext context)
+        public DesignationController(ApplicationDbContext context)
         {
             _context = context;
         }
-        public IActionResult EmployeeCreate()
+        public IActionResult DesignationCreate()
         {
             return View();
         }
         // CREATE
         [HttpPost]
-        public IActionResult Create(Employee employee)
+        public IActionResult Create(Designation designation)
         {
             if (ModelState.IsValid)
             {
                 // Add user details to the database
-                _context.Employee.Add(employee);
+                _context.Designation.Add(designation);
                 _context.SaveChanges();
                 // Redirect to a success page or another action
-                return RedirectToAction("Employee", "Employee");
+                return RedirectToAction("Designation", "Designation");
             }
 
             // If ModelState is not valid, redisplay the registration form with validation errors
-            return RedirectToAction("EmployeeCreate", "Employee");
+            return RedirectToAction("DesignationCreate", "Designation");
         }
         // READ
-        public IActionResult Employee()
+        public IActionResult Designation()
         {
-            var employee = _context.Employee.ToList();
-            return View(employee);
+            var designation = _context.Designation.ToList();
+            return View(designation);
         }
         // UPDATE
         public IActionResult Edit(int? id)
@@ -48,62 +46,60 @@ namespace CRUD.Controllers
                 return NotFound();
             }
 
-            var employee = _context.Employee.Find(id);
-            if (employee == null)
+            var designation = _context.Designation.Find(id);
+            if (designation == null)
             {
                 return NotFound();
             }
-            return View(employee);
+            return View(designation);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, Employee employee)
+        public IActionResult Edit(int id, Designation designation)
         {
-            if (id != employee.Employee_Id)
+            if (id != designation.Designation_Id)
             {
                 return NotFound();
             }
 
             if (ModelState.IsValid)
             {
-                _context.Update(employee);
+                _context.Update(designation);
                 _context.SaveChanges();
-                return RedirectToAction(nameof(Employee));
+                return RedirectToAction(nameof(Designation));
             }
-            return View(employee);
+            return View(designation);
         }
 
 
         // DELETE
         public IActionResult Delete(int id)
         {
-            var employee = _context.Employee.Find(id);
-            _context.Employee.Remove(employee);
-            if (employee == null)
+            var designated = _context.Designation.Find(id);
+            _context.Designation.Remove(designated);
+            if (designated == null)
             {
                 return NotFound();
             }
 
-            return View(employee);
+            return View(designated);
         }
 
         [HttpPost, ActionName("DeleteConfirmed")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            var employee = _context.Employee.Find(id);
-            if (employee == null)
+            var designated = _context.Designation.Find(id);
+            if (designated == null)
             {
                 return NotFound();
             }
 
-            _context.Employee.Remove(employee);
+            _context.Designation.Remove(designated);
             _context.SaveChanges();
 
-            return RedirectToAction(nameof(Employee));
+            return RedirectToAction(nameof(Designation));
         }
-
-
     }
 }

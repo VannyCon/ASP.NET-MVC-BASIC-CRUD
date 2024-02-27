@@ -1,7 +1,6 @@
 ﻿@{
-    ViewData["Title"] = "Departement";
+    ViewData["Title"] = "Employee";
 }
-
 <div class="card container my-5 py-5 z-depth-1">
 
 
@@ -13,45 +12,46 @@
         <div class="row d-flex justify-content-center mb-4">
 
             <!--Grid column-->
-            <div class="col-md-10 text-center">
-
-                <h2 class="display-4">Welcome to Departement Page</h2>
+            <div class="col-md-12 text-center">
+                <h2 class="display-4">Welcome to Department Page</h2>
                 <h5>by Ivan R. Contrevida</h5>
                 <div class="justify-content-end d-flex align-items-end">
-                    <a type="button" class="btn btn-outline-primary btn-icon-text justify-content-end align-items-end m-2">
+                    <a asp-area="" asp-controller="Department" asp-action="DepartmentCreate" type="button" class="btn btn-outline-primary btn-icon-text justify-content-end align-items-end m-2">
                         <i class="mdi mdi-file-check btn-icon-prepend"></i> + ADD
                     </a>
                 </div>
                 @model IEnumerable<Department>
-                <table class="table table-bordered">
+                <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
                             <th scope="col">Department Id</th>
                             <th scope="col">Name</th>
                             <th scope="col">Manager</th>
                             <th scope="col">Location</th>
-                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var dept in Model){
+                        @foreach (var dept in Model)
+                        {
                         <tr>
                                 <th scope="row">@dept.Department_Id</th>
                                 <td>@dept.Name</td>
                                 <td>@dept.Manager</td>
                                 <td>@dept.Location</td>
-                                <td>
-                                    <a type="button" class="btn btn-outline-info btn-icon-text">
-                                        <i class="mdi mdi-file-check btn-icon-prepend"></i> Update
-                                    </a>
-                                    <button type="button" class="btn btn-outline-danger btn-icon-text" data-toggle="modal" data-target="#deleteModal">
-                                        <i class="mdi mdi-alert btn-icon-prepend"></i> Delete
-                                    </button>
-                                </td>
+                        
+                            <td>
+                                    <a asp-controller="Department" asp-action="Edit" asp-route-id="@dept.Department_Id" type="button" class="btn btn-outline-info btn-icon-text">
+                                    <i class="mdi mdi-file-check btn-icon-prepend"></i> Update
+                                </a>
+                                    <a asp-controller="Department" asp-action="Delete" asp-route-id="@dept.Department_Id" type="button" class="btn btn-outline-danger btn-icon-text">
+                                    <i class="mdi mdi-alert btn-icon-prepend"></i> Delete
+                                </a>
+                            </td>
                         </tr>
-                        }
+                      }
                     </tbody>
                 </table>
+
             </div>
             <!--Grid column-->
 
@@ -61,4 +61,6 @@
 
     </section>
     <!--Section: Content-->
+
+
 </div>

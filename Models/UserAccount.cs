@@ -7,7 +7,8 @@ public class UserAccount
     public int UserAccount_Id { get; set; }
     public string First_Name { get; set; }
     public string Last_Name { get; set; }
-    public int Mobile { get; set; } 
+    public string Mobile { get; set; }
+    public string Password { get; set; }
     public string Email_Account { get; set; }
     public string Account { get; set; }
     public string Gender { get; set; }

@@ -18,6 +18,9 @@
                 <h2 class="display-4">Welcome to Departement Page</h2>
                 <h5>by Flory John Cartagena</h5>
                 @model IEnumerable<UserAccount>
+                <a asp-area="" asp-controller="UserAccount" asp-action="UserAccountCreate" type="button" class="btn btn-info btn-icon-text justify-content-end align-items-end m-2">
+                    <i class="mdi mdi-file-check btn-icon-prepend"></i> + ADD
+                </a>
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -41,14 +44,14 @@
                                 <td>@userAcc.Email_Account</td>
                                 <td>@userAcc.Account</td>
                                 <td>@userAcc.Gender</td>
-                            <td>
-                                <a type="button" class="btn btn-primary btn-icon-text" >
-                                    <i class="mdi mdi-file-check btn-icon-prepend"></i> Update
-                                </a>
-                                <button type="button" class="btn btn-danger btn-icon-text" data-toggle="modal" data-target="#deleteModal">
-                                    <i class="mdi mdi-alert btn-icon-prepend"></i> Delete
-                                </button>
-                            </td>
+                                <td>
+                                       <a asp-controller="UserAccount" asp-action="Edit" asp-route-id="@userAcc.UserAccount_Id" type="button" class="btn btn-primary btn-icon-text">
+                                        <i class="mdi mdi-file-check btn-icon-prepend"></i> Update
+                                    </a>
+                                    <a asp-controller="UserAccount" asp-action="Delete" asp-route-id="@userAcc.UserAccount_Id" type="button" class="btn btn-danger btn-icon-text">
+                                        <i class="mdi mdi-alert btn-icon-prepend"></i> Delete
+                                    </a>
+                                </td>
                         </tr>
                         }
                     </tbody>

@@ -3,42 +3,39 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 namespace CRUD.Controllers
-
 {
-    public class EmployeeController : Controller
+    public class UserAccountController : Controller
     {
-        
         private readonly ApplicationDbContext _context;
-
-        public EmployeeController(ApplicationDbContext context)
+        public UserAccountController(ApplicationDbContext context)
         {
             _context = context;
         }
-        public IActionResult EmployeeCreate()
+        public IActionResult UserAccountCreate()
         {
             return View();
         }
         // CREATE
         [HttpPost]
-        public IActionResult Create(Employee employee)
+        public IActionResult userCreate(UserAccount userAcc)
         {
             if (ModelState.IsValid)
             {
                 // Add user details to the database
-                _context.Employee.Add(employee);
+                _context.UserAccount.Add(userAcc);
                 _context.SaveChanges();
                 // Redirect to a success page or another action
-                return RedirectToAction("Employee", "Employee");
+                return RedirectToAction("UserAccount", "UserAccount");
             }
 
             // If ModelState is not valid, redisplay the registration form with validation errors
-            return RedirectToAction("EmployeeCreate", "Employee");
+            return RedirectToAction("UserAccountCreate", "UserAccount");
         }
         // READ
-        public IActionResult Employee()
+        public IActionResult UserAccount()
         {
-            var employee = _context.Employee.ToList();
-            return View(employee);
+            var userAcc = _context.UserAccount.ToList();
+            return View(userAcc);
         }
         // UPDATE
         public IActionResult Edit(int? id)
@@ -48,62 +45,58 @@ namespace CRUD.Controllers
                 return NotFound();
             }
 
-            var employee = _context.Employee.Find(id);
-            if (employee == null)
+            var userAcc = _context.UserAccount.Find(id);
+            if (userAcc == null)
             {
                 return NotFound();
             }
-            return View(employee);
+            return View(userAcc);
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, Employee employee)
+        public IActionResult Edit(int id, UserAccount userAcc)
         {
-            if (id != employee.Employee_Id)
+            if (id != userAcc.UserAccount_Id)
             {
                 return NotFound();
             }
 
             if (ModelState.IsValid)
             {
-                _context.Update(employee);
+                _context.Update(userAcc);
                 _context.SaveChanges();
-                return RedirectToAction(nameof(Employee));
+                return RedirectToAction(nameof(UserAccount));
             }
-            return View(employee);
+            return View(userAcc);
         }
-
 
         // DELETE
         public IActionResult Delete(int id)
         {
-            var employee = _context.Employee.Find(id);
-            _context.Employee.Remove(employee);
-            if (employee == null)
+            var userAccount = _context.UserAccount.Find(id);
+            _context.UserAccount.Remove(userAccount);
+            if (userAccount == null)
             {
                 return NotFound();
             }
 
-            return View(employee);
+            return View(userAccount);
         }
 
         [HttpPost, ActionName("DeleteConfirmed")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            var employee = _context.Employee.Find(id);
-            if (employee == null)
+            var userAccount = _context.UserAccount.Find(id);
+            if (userAccount == null)
             {
                 return NotFound();
             }
 
-            _context.Employee.Remove(employee);
+            _context.UserAccount.Remove(userAccount);
             _context.SaveChanges();
 
-            return RedirectToAction(nameof(Employee));
+            return RedirectToAction(nameof(UserAccount));
         }
-
-
     }
 }

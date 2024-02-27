@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Department Create";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Registration</div>
+                <div class="card-body">
+                    <form method="post" asp-controller="Department" asp-action="Create">
+                        <div class="form-group">
+                            <label for="First">Name</label>
+                            <input type="text" name="Name" class="form-control" id="Name" placeholder="Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Last">Manager</label>
+                            <input type="text" name="Manager" class="form-control" id="Manager" placeholder="Manager" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Location">Location</label>
+                            <input type="text" name="Location" class="form-control" id="Location" placeholder="Location" required>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="remember">
+                            <label class="form-check-label" for="remember">Remember me</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -12,12 +12,11 @@
         <div class="row d-flex justify-content-center mb-4">
 
             <!--Grid column-->
-            <div class="col-md-8 text-center">
-
+            <div class="col-md-12 text-center">
                 <h2 class="display-4">Welcome to Employee Page</h2>
                 <h5>by Ivan R. Contrevida</h5>
                 <div class="justify-content-end d-flex align-items-end">
-                    <a asp-area="" asp-controller="Home" asp-action="EmployeeCreate" type="button" class="btn btn-outline-primary btn-icon-text justify-content-end align-items-end m-2">
+                    <a asp-area="" asp-controller="Employee" asp-action="EmployeeCreate" type="button" class="btn btn-outline-primary btn-icon-text justify-content-end align-items-end m-2">
                         <i class="mdi mdi-file-check btn-icon-prepend"></i> + ADD
                     </a>
                 </div>
@@ -45,10 +44,10 @@
                             <td>@employee.Gender</td>
                             <td>@employee.Position</td>
                             <td>
-                                <a asp-action="Edit" asp-route-id="@employee.Employee_Id" type="button" class="btn btn-outline-info btn-icon-text">
+                                    <a asp-controller="Employee" asp-action="Edit" asp-route-id="@employee.Employee_Id" type="button" class="btn btn-outline-info btn-icon-text">
                                     <i class="mdi mdi-file-check btn-icon-prepend"></i> Update
                                 </a>
-                                <a asp-action="Delete" asp-route-id="@employee.Employee_Id" type="button" class="btn btn-outline-danger btn-icon-text">
+                                    <a asp-controller="Employee"  asp-action="Delete" asp-route-id="@employee.Employee_Id" type="button" class="btn btn-outline-danger btn-icon-text">
                                     <i class="mdi mdi-alert btn-icon-prepend"></i> Delete
                                 </a>
                             </td>

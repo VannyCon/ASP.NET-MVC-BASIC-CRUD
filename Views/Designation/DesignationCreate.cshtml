@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Designation Create";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Registration</div>
+                <div class="card-body">
+                    <form method="post" asp-controller="Designation" asp-action="Create">
+                        <div class="form-group">
+                            <label for="Designated">Designated</label>
+                            <input type="text" name="Designated" class="form-control" id="Designated" placeholder="Designated" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="First">First</label>
+                            <input type="text" name="First" class="form-control" id="First" placeholder="First" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Last">Last</label>
+                            <input type="text" name="Last" class="form-control" id="Last" placeholder="Last" required>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="remember">
+                            <label class="form-check-label" for="remember">Remember me</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
