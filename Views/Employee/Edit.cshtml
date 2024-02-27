@@ -6,7 +6,7 @@
 @model Employee
 
 <h2>Edit Employee</h2>
-    <form asp-action="Edit">
+<form asp-controller="Employee" asp-action="Edit" method="post">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <input type="hidden" asp-for="Employee_Id" />
 
@@ -39,4 +39,4 @@
             <input type="submit" value="Save" class="btn btn-primary" />
         </div>
     </form>
-<a asp-action="Index">Back to List</a>
+<a asp-action="Employee">Back to List</a>
