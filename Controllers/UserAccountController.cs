@@ -3,41 +3,39 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 namespace CRUD.Controllers
-
 {
-    public class DepartmentController : Controller
+    public class UserAccountController : Controller
     {
         private readonly ApplicationDbContext _context;
-        public DepartmentController(ApplicationDbContext context)
+        public UserAccountController(ApplicationDbContext context)
         {
             _context = context;
         }
-        public IActionResult DepartmentCreate()
+        public IActionResult UserAccountCreate()
         {
             return View();
         }
         // CREATE
         [HttpPost]
-        public IActionResult Create(Department department)
+        public IActionResult userCreate(UserAccount userAcc)
         {
             if (ModelState.IsValid)
             {
                 // Add user details to the database
-                _context.Departments.Add(department);
+                _context.UserAccount.Add(userAcc);
                 _context.SaveChanges();
                 // Redirect to a success page or another action
-                return RedirectToAction("Department", "Department");
+                return RedirectToAction("UserAccount", "UserAccount");
             }
 
             // If ModelState is not valid, redisplay the registration form with validation errors
-            return RedirectToAction("DepartmentCreate", "Department");
+            return RedirectToAction("UserAccountCreate", "UserAccount");
         }
-
         // READ
-        public IActionResult Department()
+        public IActionResult UserAccount()
         {
-            var department = _context.Departments.ToList();
-            return View(department);
+            var userAcc = _context.UserAccount.ToList();
+            return View(userAcc);
         }
         // UPDATE
         public IActionResult Edit(int? id)
@@ -47,30 +45,29 @@ namespace CRUD.Controllers
                 return NotFound();
             }
 
-            var department = _context.Departments.Find(id);
-            if (department == null)
+            var userAcc = _context.UserAccount.Find(id);
+            if (userAcc == null)
             {
                 return NotFound();
             }
-            return View(department);
+            return View(userAcc);
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, Department department)
+        public IActionResult Edit(int id, UserAccount userAcc)
         {
-            if (id != department.Department_Id)
+            if (id != userAcc.UserAccount_Id)
             {
                 return NotFound();
             }
 
             if (ModelState.IsValid)
             {
-                _context.Update(department);
+                _context.Update(userAcc);
                 _context.SaveChanges();
-                return RedirectToAction(nameof(Department));
+                return RedirectToAction(nameof(UserAccount));
             }
-            return View(department);
+            return View(userAcc);
         }
 
         //DELETE
@@ -83,16 +80,16 @@ namespace CRUD.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            var department = _context.Departments.Find(id);
-            if (department == null)
+            var userAcc = _context.UserAccount.Find(id);
+            if (userAcc == null)
             {
                 return NotFound();
             }
 
-            _context.Departments.Remove(department);
+            _context.UserAccount.Remove(userAcc);
             _context.SaveChanges();
 
-            return RedirectToAction(nameof(Department)); ;
+            return RedirectToAction(nameof(UserAccount)); ;
         }
     }
 }
