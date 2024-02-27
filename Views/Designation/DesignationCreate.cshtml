@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Department Create";
+    ViewData["Title"] = "Designation Create";
 }
 
 <div class="container mt-5">
@@ -8,18 +8,18 @@
             <div class="card">
                 <div class="card-header">Registration</div>
                 <div class="card-body">
-                    <form method="post" asp-controller="Department" asp-action="Create">
+                    <form method="post" asp-controller="Designation" asp-action="Create">
                         <div class="form-group">
-                            <label for="First">Name</label>
-                            <input type="text" name="Name" class="form-control" id="Name" placeholder="Name" required>
+                            <label for="Designated">Designated</label>
+                            <input type="text" name="Designated" class="form-control" id="Designated" placeholder="Designated" required>
                         </div>
                         <div class="form-group">
-                            <label for="Last">Manager</label>
-                            <input type="text" name="Manager" class="form-control" id="Manager" placeholder="Manager" required>
+                            <label for="First">First</label>
+                            <input type="text" name="First" class="form-control" id="First" placeholder="First" required>
                         </div>
                         <div class="form-group">
-                            <label for="Location">Location</label>
-                            <input type="text" name="Location" class="form-control" id="Location" placeholder="Location" required>
+                            <label for="Last">Last</label>
+                            <input type="text" name="Last" class="form-control" id="Last" placeholder="Last" required>
                         </div>
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="remember">
