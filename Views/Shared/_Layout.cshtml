@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -22,25 +23,39 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="Employee">Employee</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Department" asp-action="Department">Department</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Designation" asp-action="Designation">Designation</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="UserAccount" asp-action="UserAccount">UserAccount</a>
-                        </li>
-                        <ul class="nav nav-tabs nav-justified ms-auto" id="myTab" role="tablist">
+                        @if (!string.IsNullOrEmpty(ViewBag.Username))
+                        {
                             <li class="nav-item">
-                                <a class="nav-link" id="home-tab" data-toggle="tab" asp-area="" asp-controller="Home" asp-action="registration" role="tab" aria-controls="Home" aria-selected="true">Registration</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="Employee">Employee</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" asp-area="" asp-controller="Home" asp-action="userLogin" role="tab" aria-controls="Home" aria-selected="false">Login</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Department" asp-action="Department">Department</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Designation" asp-action="Designation">Designation</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="UserAccount" asp-action="UserAccount">UserAccount</a>
+                            </li>
+                        }
+                        
+                            <ul class="nav nav-tabs nav-justified ms-auto" id="myTab" role="tablist">
+                            @if (!string.IsNullOrEmpty(ViewBag.Username))
+                            {
+                                <li class="nav-item">
+                                    <a class="btn btn-outline-danger btn-icon-text" id="profile-tab" data-toggle="tab" asp-area="" asp-controller="Account" asp-action="Logout" role="tab" aria-controls="Home" aria-selected="false">Logout</a>
+                                </li>
+                            }
+
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" id="home-tab" data-toggle="tab" asp-area="" asp-controller="Account" asp-action="registration" role="tab" aria-controls="Home" aria-selected="true">Registration</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" asp-area="" asp-controller="Account" asp-action="Index" role="tab" aria-controls="Home" aria-selected="false">Login</a>
+                                </li>
+                            }
                         </ul>
                     </ul>
                 </div>

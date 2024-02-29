@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Registration";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Registration</div>
+                <div class="card-body">
+                    <form method="post" asp-controller="Account" asp-action="Register">
+                        <div class="form-group">
+                            <label for="First">First_Name</label>
+                            <input type="text" name="First_Name" class="form-control" id="First_Name" placeholder="First" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Last_Name">Last_Name</label>
+                            <input type="text" name="Last_Name" class="form-control" id="Last_Name" placeholder="Last" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Mobile">Mobile</label>
+                            <input type="text" name="Mobile" class="form-control" id="Mobile" placeholder="Mobile" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Password">Password</label>
+                            <input type="text" name="Password" class="form-control" id="Password" placeholder="Password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Email_Account">Email_Account</label>
+                            <input type="email" name="Email_Account" class="form-control" id="Email_Account" placeholder="Email_Account" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Account">Account</label>
+                            <input type="text" name="Account" class="form-control" id="Account" placeholder="Account" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Gender">Gender</label>
+                            <input type="text" name="Gender" class="form-control" id="Gender" placeholder="Gender" required>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="remember">
+                            <label class="form-check-label" for="remember">Remember me</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

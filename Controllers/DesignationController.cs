@@ -14,92 +14,155 @@ namespace CRUD.Controllers
         }
         public IActionResult DesignationCreate()
         {
-            return View();
+            ViewBag.Username = HttpContext.Session.GetString("username");
+            if (!string.IsNullOrEmpty(ViewBag.Username))
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Account");
+            }
+
         }
         // CREATE
         [HttpPost]
         public IActionResult Create(Designation designation)
         {
-            if (ModelState.IsValid)
+            ViewBag.Username = HttpContext.Session.GetString("username");
+            if (!string.IsNullOrEmpty(ViewBag.Username))
             {
-                // Add user details to the database
-                _context.Designation.Add(designation);
-                _context.SaveChanges();
-                // Redirect to a success page or another action
-                return RedirectToAction("Designation", "Designation");
+                if (ModelState.IsValid)
+                {
+                    // Add user details to the database
+                    _context.Designation.Add(designation);
+                    _context.SaveChanges();
+                    // Redirect to a success page or another action
+                    return RedirectToAction("Designation", "Designation");
+                }
+
+                // If ModelState is not valid, redisplay the registration form with validation errors
+                return RedirectToAction("DesignationCreate", "Designation");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Account");
             }
 
-            // If ModelState is not valid, redisplay the registration form with validation errors
-            return RedirectToAction("DesignationCreate", "Designation");
         }
         // READ
         public IActionResult Designation()
         {
-            var designation = _context.Designation.ToList();
-            return View(designation);
+            ViewBag.Username = HttpContext.Session.GetString("username");
+            if (!string.IsNullOrEmpty(ViewBag.Username))
+            {
+                var designation = _context.Designation.ToList();
+                return View(designation);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Account");
+            }
+
         }
         // UPDATE
         public IActionResult Edit(int? id)
         {
-            if (id == null)
+            ViewBag.Username = HttpContext.Session.GetString("username");
+            if (!string.IsNullOrEmpty(ViewBag.Username))
             {
-                return NotFound();
-            }
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-            var designation = _context.Designation.Find(id);
-            if (designation == null)
-            {
-                return NotFound();
+                var designation = _context.Designation.Find(id);
+                if (designation == null)
+                {
+                    return NotFound();
+                }
+                return View(designation);
             }
-            return View(designation);
+            else
+            {
+                return RedirectToAction("Index", "Account");
+            }
+           
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, Designation designation)
         {
-            if (id != designation.Designation_Id)
+            ViewBag.Username = HttpContext.Session.GetString("username");
+            if (!string.IsNullOrEmpty(ViewBag.Username))
             {
-                return NotFound();
-            }
+                if (id != designation.Designation_Id)
+                {
+                    return NotFound();
+                }
 
-            if (ModelState.IsValid)
-            {
-                _context.Update(designation);
-                _context.SaveChanges();
-                return RedirectToAction(nameof(Designation));
+                if (ModelState.IsValid)
+                {
+                    _context.Update(designation);
+                    _context.SaveChanges();
+                    return RedirectToAction(nameof(Designation));
+                }
+                return View(designation);
             }
-            return View(designation);
+            else
+            {
+                return RedirectToAction("Index", "Account");
+            }
+           
         }
 
 
         // DELETE
         public IActionResult Delete(int id)
         {
-            var designated = _context.Designation.Find(id);
-            _context.Designation.Remove(designated);
-            if (designated == null)
+            ViewBag.Username = HttpContext.Session.GetString("username");
+            if (!string.IsNullOrEmpty(ViewBag.Username))
             {
-                return NotFound();
+                var designated = _context.Designation.Find(id);
+                _context.Designation.Remove(designated);
+                if (designated == null)
+                {
+                    return NotFound();
+                }
+
+                return View(designated);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Account");
             }
 
-            return View(designated);
         }
 
         [HttpPost, ActionName("DeleteConfirmed")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            var designated = _context.Designation.Find(id);
-            if (designated == null)
+            ViewBag.Username = HttpContext.Session.GetString("username");
+            if (!string.IsNullOrEmpty(ViewBag.Username))
             {
-                return NotFound();
+                var designated = _context.Designation.Find(id);
+                if (designated == null)
+                {
+                    return NotFound();
+                }
+
+                _context.Designation.Remove(designated);
+                _context.SaveChanges();
+
+                return RedirectToAction(nameof(Designation));
+            }
+            else
+            {
+                return RedirectToAction("Index", "Account");
             }
 
-            _context.Designation.Remove(designated);
-            _context.SaveChanges();
-
-            return RedirectToAction(nameof(Designation));
         }
     }
 }
