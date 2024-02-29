@@ -101,7 +101,7 @@ namespace CRUD.Controllers
 
             _context.Departments.Remove(department);
             _context.SaveChanges();
-
+    
             return RedirectToAction(nameof(Department));
         }
     }

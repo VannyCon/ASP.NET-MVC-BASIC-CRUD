@@ -6,7 +6,7 @@
 <!-- _DeleteConfirmation.cshtml -->
 @model Department
 
-<h2>Delete Employee</h2>
+<h2>Delete Department</h2>
 <form asp-controller="Department" asp-action="DeleteConfirmed" asp-route-id="@Model.Department_Id" method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <input type="text" class="form-control" readonly asp-for="Department_Id" />
