@@ -5,47 +5,71 @@
 }
 @model UserAccount
 
-<h2>Edit User Account</h2>
-<form asp-controller="UserAccount" asp-action="Edit" method="post">
-     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <input type="hidden" asp-for="UserAccount_Id" />
-        <div class="form-group">
-        <label asp-for="First_Name" class="control-label"></label>
-        <input asp-for="First_Name" class="form-control" />
-        <span asp-validation-for="First_Name" class="text-danger"></span>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="rounded-3 secondarColor p-5">
+                <div class="card-header">
+                    <div class="text-left">
+                        <h1 class="text-500">Edit User Account</h1>
+
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form method="post" asp-controller="UserAccount" asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="UserAccount_Id" />
+
+                        <label asp-for="First_Name" class="fw-light white-muted m-0">First Name</label>
+                        <div class="form-outline form-group mb-3">
+                            <input asp-for="First_Name" type="text" name="First_Name" id="form2Example11" class="myInput white-white p-4" />
+                            <span asp-validation-for="First_Name" class="text-danger"></span>
+                        </div>
+
+                        <label asp-for="Last_Name" class="fw-light white-muted m-0">Last Name</label>
+                        <div class="form-outline form-group mb-3">
+                            <input asp-for="Last_Name" type="text" name="Last_Name" id="form2Example11" class="myInput white-white p-4" />
+                            <span asp-validation-for="Last_Name" class="text-danger"></span>
+                        </div>
+
+                        <label asp-for="Mobile" class="fw-light white-muted m-0">Mobile</label>
+                        <div class="form-outline form-group mb-3">
+                            <input asp-for="Mobile" type="number" name="Mobile" id="form2Example11" class="myInput white-white p-4" />
+                            <span asp-validation-for="Mobile" class="text-danger"></span>
+                        </div>
+
+                        <label asp-for="Password" class="fw-light white-muted m-0">Password</label>
+                        <div class="form-outline form-group mb-3">
+                            <input asp-for="Password" type="text" name="Password" id="form2Example11" class="myInput white-white p-4" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <label asp-for="Email_Account" class="fw-light white-muted m-0">Email</label>
+                        <div class="form-outline form-group mb-3">
+                            <input asp-for="Email_Account" type="email" name="Email_Account" id="form2Example11" class="myInput white-white p-4" />
+                            <span asp-validation-for="Email_Account" class="text-danger"></span>
+                        </div>
+
+
+                        <label asp-for="Account" class="fw-light white-muted m-0">Account</label>
+                        <div class="form-outline form-group mb-3">
+                            <input asp-for="Account" type="text" name="Account" id="form2Example11" class="myInput white-white p-4" />
+                            <span asp-validation-for="Account" class="text-danger"></span>
+                        </div>
+
+
+                        <label asp-for="Gender" class="fw-light white-muted m-0">Gender</label>
+                        <div class="form-outline form-group mb-3">
+                            <input asp-for="Gender" type="text" name="Gender" id="form2Example11" class="myInput white-white p-4" />
+                            <span asp-validation-for="Gender" class="text-danger"></span>
+                        </div>
+                        <div class="text-left pt-1 mb-5 pb-1">
+                            <button class="button-full d-block mb-2 text-center p-3" type="submit">Update</button>
+                        </div>
+                    </form>
+                    <a id="departmentLink" class="text-white text-decoration-none" asp-area="" asp-controller="UserAccount" asp-action="UserAccount">← Go Back</a>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-        <label asp-for="Last_Name" class="control-label"></label>
-        <input asp-for="Last_Name" class="form-control" />
-        <span asp-validation-for="Last_Name" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-        <label asp-for="Mobile" class="control-label"></label>
-        <input asp-for="Mobile" class="form-control" />
-        <span asp-validation-for="Mobile" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="Password" class="control-label"></label>
-        <input asp-for="Password" class="form-control" />
-        <span asp-validation-for="Password" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-        <label asp-for=" Email_Account" class="control-label"></label>
-        <input asp-for=" Email_Account" class="form-control" />
-        <span asp-validation-for=" Email_Account" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-        <label asp-for="Account" class="control-label"></label>
-        <input asp-for="Account" class="form-control" />
-        <span asp-validation-for="Account" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-        <label asp-for="Gender" class="control-label"></label>
-        <input asp-for="Gender" class="form-control" />
-        <span asp-validation-for="Gender" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <input type="submit" value="Save" class="btn btn-primary" />
-        </div>
-    </form>
-<a asp-action="UserAccount">Back to List</a>
+    </div>
+</div>

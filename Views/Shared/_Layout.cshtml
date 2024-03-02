@@ -19,43 +19,38 @@
                 <h1 class="hrms">HRMS</h1>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-3">
-                            <a class="nav-link text-white" href="#">Home</a>
-                        </li>
-                        <li class="nav-item mx-3">
-                            <a class="nav-link text-white" onclick="scrollToSection('about')" href="#">About</a>
-                        </li>
-                        <li class="nav-item mx-3">
-                            <a class="nav-link text-white" onclick="scrollToSection('contact')" href="#">Contact Us</a>
-                        </li>
-                        
                         @if (!string.IsNullOrEmpty(ViewBag.Username))
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="Employee">Employee</a>
+                            <li class="nav-item mx-3 my-2">
+                                <a id ="homeLink" class="text-decoration-none text-white" asp-area="" asp-controller="Home" asp-action="Home">Home</a>
+                            </li>
+                            <li class="nav-item mx-3 my-2">
+                                <a id="departmentLink" class="text-white text-decoration-none" asp-area="" asp-controller="Department" asp-action="Department">Department</a>
+                            </li>
+                            <li class="nav-item mx-3 my-2">
+                                <a id="employeeLink" class="text-decoration-none text-white" asp-area="" asp-controller="Employee" asp-action="Employee">Employee</a>
+                            </li>
+                            <li class="nav-item mx-3 my-2">
+                                <a id="designationLink" class="text-decoration-none text-white" asp-area="" asp-controller="Designation" asp-action="Designation">Designation</a>
+                            </li>
+                            <li class="nav-item mx-3 my-2">
+                                <a id="userAccountLink" class="text-decoration-none text-white" asp-area="" asp-controller="UserAccount" asp-action="UserAccount">UserAccount</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Department" asp-action="Department">Department</a>
+                                <a class="button-60 text-decoration-none text-white" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Designation" asp-action="Designation">Designation</a>
+                        }else{
+                            <li class="nav-item mx-3">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="UserAccount" asp-action="UserAccount">UserAccount</a>
-                            </li>
-                        }
-                        <ul class="nav nav-tabs nav-justified ms-auto" id="myTab" role="tablist">
-                            @if (!string.IsNullOrEmpty(ViewBag.Username))
-                            {
-                                <li>
-                                    <a class="button-60 text-decoration-none border-0" id="profile-tab" data-toggle="tab" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+                                <li class="nav-item mx-3">
+                                <a class="nav-link text-white" style="cursor: pointer;" onclick="scrollToSection('about')">About</a>
                                 </li>
-                            }
-
-                            else
-                            {
+                                <li class="nav-item mx-3">
+                                <a class="nav-link text-white" style="cursor: pointer;" onclick="scrollToSection('contact')">Contact</a>
+                                </li>
                                 <li class="nav-item">
-                                    <a class="button-60" id="home-tab" data-toggle="tab" asp-area="" asp-controller="Account" asp-action="registration" role="tab" aria-controls="Home" aria-selected="true">Registration</a>
+                                    <a class="button-60 text-white" asp-area="" asp-controller="Account" asp-action="registration">Get Started</a>
                                 </li>
                             }
                     </ul>
@@ -87,7 +82,47 @@
                 behavior: 'smooth'
             });
         }
+
+        function setActive(id) {
+            // Remove the active class from all links
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Add the active class to the clicked link
+            document.getElementById(id).classList.add('active');
+        }
+
+        // Set the active class for the department link on page load
+        window.onload = function () {
+            var currentUrl = window.location.href.toLowerCase();
+            var departmentUrl = "@Url.Action("Home", "Home")".toLowerCase();
+            if (currentUrl.indexOf(departmentUrl) !== -1) {
+                document.getElementById('homeLink').classList.add('active');
+            }
+            var departmentUrl = "@Url.Action("Department", "Department")".toLowerCase();
+            if (currentUrl.indexOf(departmentUrl) !== -1) {
+                document.getElementById('departmentLink').classList.add('active');
+            }
+
+            var employeeUrl = "@Url.Action("Employee", "Employee")".toLowerCase();
+            if (currentUrl.indexOf(employeeUrl) !== -1) {
+                document.getElementById('employeeLink').classList.add('active');
+            }
+
+            var designationUrl = "@Url.Action("Designation", "Designation")".toLowerCase();
+            if (currentUrl.indexOf(designationUrl) !== -1) {
+                document.getElementById('designationLink').classList.add('active');
+            }
+
+            var userAccountUrl = "@Url.Action("UserAccount", "UserAccount")".toLowerCase();
+            if (currentUrl.indexOf(userAccountUrl) !== -1) {
+                document.getElementById('userAccountLink').classList.add('active');
+            }
+        };
     </script>
+
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

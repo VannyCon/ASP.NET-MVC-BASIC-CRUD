@@ -1,0 +1,95 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="row justify-content-between px-5" style="margin-bottom:200px">
+    <div class="col-7 box d-flex align-items-center">
+        <div class="ml-5">
+            <h1 class="text-white home-main-text ">Welcome <span class="text-main-color">Back</span></h1>
+            <h3 class="text-white fw-light"><span class="text-main-color">HRMS</span> is designed to simplify and optimize your human resources management processes.</h3>
+            <h5 class="text-white fw-light">It offers an intuitive interface, advanced features, and customizable options to suit your organization's unique needs.</h5>
+            <button class="button-60" role="button">MORE</button>
+        </div>
+    </div>
+    <div class="col-5 box">
+        <img src="@Url.Content("~/Content/Images/pic2.png")" class="img-fluid" alt="Responsive image">
+    </div>
+</div>
+<section class="about-section" id="about">
+    <div class="container-fluid p-5 ">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="about-content">
+                    <div class="row justify-content-between">
+                        <div class="col-7 box d-flex align-items-center">
+                            <div class="ml-5">
+                                <h1 class="text-white home-main-text ">About Us</h1>
+                                <h3 class="text-white fw-light">
+                                    Welcome to <span class="text-main-color fw-bold">HRMS</span>, where we revolutionize
+                                    Human Resource Management with innovative
+                                    technology and dedicated support.
+                                </h3>
+                                <h5 class="text-white fw-light">
+                                    Our mission is to empower organizations of all sizes to effectively
+                                    manage their workforce, from recruitment to retirement.
+                                    We provide intuitive tools and features that simplify every
+                                    aspect of HR management, ensuring compliance, automating
+                                    routine tasks, and enabling data-driven decision-making.
+                                </h5>
+                                <a class="button-60" style="cursor: pointer;" onclick="scrollToSection('about')" >More</a>
+                            </div>
+                        </div>
+                        <div class="col-5 box">
+                            <img src="@Url.Content("~/Content/Images/about.png")" class="img-fluid" alt="Responsive image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="about-section" id="contact">
+    <div class="container-fluid p-5 ">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="about-content">
+                    <div class="row justify-content-between">
+                        <div class="col-7 box d-flex align-items-center pt-5">
+                            <div class="ml-5">
+                                <h1 class="text-white home-main-text ">Any Concern? Just <span class="text-main-color fw-bold">Contact Us.</span></h1>
+                                <p class="fw-light white-muted my-3">We will do our best to reach you and happily response to your concern</p>
+                                <form>
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <p class="fw-light white-muted m-0">First</p>
+                                            <input type="text" class="myInput2 white-muted p-4 text-white" placeholder="First name">
+                                        </div>
+                                        <div class="col">
+                                            <p class="fw-light white-muted m-0">Last</p>
+                                            <input type="text" class="myInput2 white-muted text-white p-4" placeholder="Last name">
+                                        </div>
+                                    </div>
+                                    <p class="fw-light white-muted m-0">Email</p>
+                                    <div class="form-outline mb-3">
+                                        <input type="email" id="form2Example11" class="myInput2 white-muted text-white p-4"
+                                               placeholder="example@gmail.com" />
+                                    </div>
+                                    <p class="fw-light white-muted m-0">Description</p>
+                                    <textarea class="myInput2 text-white white-muted" style="height: 100px;" id="exampleFormControlTextarea1" rows="3" placeholder="Description"></textarea>
+                                    <button class="button-60 my-4" style="width: 100px;" role="button">Send</button>
+                                </form>
+
+                            </div>
+                        </div>
+                        <div class="col-5 box ">
+
+                            <img src="@Url.Content("~/Content/Images/pic3.png")" class="img-fluid" alt="Responsive image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

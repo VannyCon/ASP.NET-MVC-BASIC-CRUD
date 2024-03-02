@@ -1,32 +1,40 @@
-﻿@{
-    ViewData["Title"] = "Designation Create";
-}
-
-<div class="container mt-5">
+﻿<div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">Designation Registration</div>
+            <div class="rounded-3 secondarColor p-5">
+                <div class="card-header">
+                    <div class="text-left">
+                        <h1 class="text-500">Create Designation</h1>
+
+                    </div>
+                </div>
                 <div class="card-body">
                     <form method="post" asp-controller="Designation" asp-action="Create">
-                        <div class="form-group">
-                            <label for="Designated">Designated</label>
-                            <input type="text" name="Designated" class="form-control" id="Designated" placeholder="Designated" required>
+                        <p class="fw-light white-muted m-0">Designated</p>
+                        <div class="form-outline form-group mb-3">
+                            <input type="text" name="Designated" id="form2Example11" class="myInput white-muted p-4"
+                                   placeholder="Designated" />
                         </div>
-                        <div class="form-group">
-                            <label for="First">First</label>
-                            <input type="text" name="First" class="form-control" id="First" placeholder="First" required>
+                        <p class="fw-light white-muted m-0">First</p>
+                        <div class="form-outline form-group mb-3">
+                            <input type="text" name="First" id="form2Example11" class="myInput white-muted p-4"
+                                   placeholder="First" />
                         </div>
-                        <div class="form-group">
-                            <label for="Last">Last</label>
-                            <input type="text" name="Last" class="form-control" id="Last" placeholder="Last" required>
+                        <p class="fw-light white-muted m-0">Last</p>
+                        <div class="form-outline form-group mb-3">
+                            <input type="text" name="Last" id="form2Example11" class="myInput white-muted p-4"
+                                   placeholder="Last" />
                         </div>
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="remember">
-                            <label class="form-check-label" for="remember">Remember me</label>
+                        <p class="fw-light white-muted m-0">Location</p>
+                        <div class="form-outline form-group mb-3">
+                            <input type="text" name="Location" id="form2Example11" class="myInput white-muted p-4"
+                                   placeholder="Location" />
                         </div>
-                        <button type="submit" class="btn btn-primary m-2">Create</button>
+                        <div class="text-left pt-1 mb-5 pb-1">
+                            <button class="button-full d-block mb-2 text-center p-3" type="submit">Create</button>
+                        </div>
                     </form>
+                    <a id="departmentLink" class="text-white text-decoration-none" asp-area="" asp-controller="Designation" asp-action="Designation">← Go Back</a>
                 </div>
             </div>
         </div>

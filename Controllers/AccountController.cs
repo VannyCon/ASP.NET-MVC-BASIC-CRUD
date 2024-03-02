@@ -34,7 +34,7 @@ namespace CRUD.Controllers
             if (account!=null)
             {
                 HttpContext.Session.SetString("username", Email_Account);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Home", "Home");
             }
             else
             {

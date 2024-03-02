@@ -5,28 +5,45 @@
 }
 @model Department
 
-<h2>Edit Department</h2>
-<form asp-controller="Department" asp-action="Edit" method="post">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <input type="hidden" asp-for="Department_Id" />
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="rounded-3 secondarColor p-5">
+                <div class="card-header">
+                    <div class="text-left">
+                        <h1 class="text-500">Edit Department</h1>
+                      
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form method="post" asp-controller="Department" asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Department_Id" />
+                        <label asp-for="Name" class="fw-light white-muted m-0">Name</label>
+                        <div class="form-outline form-group mb-3">
+                            <input asp-for="Name" type="text" name="Name" id="form2Example11" class="myInput white-white p-4"/>
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
 
-        <div class="form-group">
-        <label asp-for="Name" class="control-label"></label>
-        <input asp-for="Name" class="form-control" />
-        <span asp-validation-for="Name" class="text-danger"></span>
+                        <label asp-for="Manager" class="fw-light white-muted m-0">Name</label>
+                        <div class="form-outline form-group mb-3">
+                            <input asp-for="Manager" type="text" name="Manager" id="form2Example11" class="myInput white-white p-4" />
+                            <span asp-validation-for="Manager" class="text-danger"></span>
+                        </div>
+
+                        <label asp-for="Location" class="fw-light white-muted m-0">Name</label>
+                        <div class="form-outline form-group mb-3">
+                            <input asp-for="Location" type="text" name="Location" id="form2Example11" class="myInput white-white p-4" />
+                            <span asp-validation-for="Location" class="text-danger"></span>
+                        </div>
+
+                        <div class="text-left pt-1 mb-5 pb-1">
+                            <button class="button-full d-block mb-2 text-center p-3" type="submit">Update</button>
+                        </div>
+                    </form>
+                    <a id="departmentLink" class="text-white text-decoration-none" asp-area="" asp-controller="Department" asp-action="Department">← Go Back</a>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-        <label asp-for="Manager" class="control-label"></label>
-        <input asp-for="Manager" class="form-control" />
-        <span asp-validation-for="Manager" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-        <label asp-for="Location" class="control-label"></label>
-        <input asp-for="Location" class="form-control" />
-        <span asp-validation-for="Location" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <input type="submit" value="Save" class="btn btn-primary m-2" />
-        </div>
-    </form>
-<a asp-action="Department">Back to List</a>
+    </div>
+</div>

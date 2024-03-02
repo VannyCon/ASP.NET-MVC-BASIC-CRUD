@@ -19,6 +19,13 @@
     color: #F85692;
     font-size: 70px;
 }
+.home-secondary-text {
+    font-size:larger;
+    font-weight: 900;
+    color: #F85692;
+    font-size: 70px;
+}
+
 
 .text-main-color {
     color: #F85692;
@@ -67,7 +74,14 @@
     vertical-align: top;
     white-space: nowrap;
 }
-
+    .button-60:hover,
+    .button-60:focus {
+        border: 1px solid #ffb1ce;
+        color: #F85692; /* Change the color to white */
+    }
+    .button-create:not(:hover):not(:focus) {
+        color: #ffffff; /* Change the color back to its original color */
+    }
 .button-create {
     align-items: center;
     appearance: none;
@@ -95,6 +109,15 @@
     white-space: nowrap;
 }
 
+    .button-create:hover,
+    .button-create:focus {
+        border: 1px solid #eaa5f7;
+        color: #ffffff; /* Change the color to white */
+    }
+
+.button-create:not(:hover):not(:focus) {
+    color: #e44bff; /* Change the color back to its original color */
+}
 .button-edit {
     align-items: center;
     appearance: none;
@@ -107,7 +130,6 @@
     font-weight: bolder;
     cursor: pointer;
     display: inline-flex;
-    /* font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif; */
     font-size: 1rem;
     height: 2.5em;
     justify-content: center;
@@ -121,7 +143,15 @@
     vertical-align: top;
     white-space: nowrap;
 }
+    .button-edit:hover,
+    .button-edit:focus {
+        border: 1px solid #ccfcff;
+        color: #ffffff; /* Change the color to white */
+    }
 
+.button-edit:not(:hover):not(:focus) {
+    color: #54f6ff; /* Change the color back to its original color */
+}
 .button-delete {
     align-items: center;
     appearance: none;
@@ -148,7 +178,15 @@
     vertical-align: top;
     white-space: nowrap;
 }
+    .button-delete:hover,
+    .button-delete:focus {
+        border: 1px solid #fab1b1;
+        color: #ffffff; /* Change the color to white */
+    }
 
+.button-delete:not(:hover):not(:focus) {
+    color: #ff5555; /* Change the color back to its original color */
+}
 .button-full {
     align-items: center;
     appearance: none;
@@ -272,12 +310,12 @@
     padding: 5px 10px;
     transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
     border: 2px solid #3B3A59;
-    color: rgb(14, 14, 16);
+    color: white;
     background: #3B3A59;
     display: block;
+    -webkit-appearance: none;
     height: 36px;
     : hover
-
 {
     border-color: #F85692;
 }
@@ -288,16 +326,47 @@
 }
 
 }
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.select-wrapper::after {
+    content: "▼";
+    font-family: FontAwesome;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    pointer-events: none;
+}
+
+.selected {
+    font-size: 14px;
+    border-radius: 6px;
+    line-height: 1.5;
+    padding: 15px 40px 10px 15px; /* Adjust padding to accommodate the icon */
+    transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
+    border: 2px solid #3B3A59;
+   
+    background: #3B3A59;
+    display: block;
+    -webkit-appearance: none;
+    width: 100%;
+}
+
 
 .myInput2 {
     font-size: 14px;
     width: 100%;
     border-radius: 6px;
     line-height: 1.5;
-    padding: 5px 10px;
+    padding: 5px 20px;
     transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
     border: 2px solid #2D2D47;
-    color: rgb(14, 14, 16);
+    color: white;
     background: #2D2D47;
     display: block;
     height: 36px;
@@ -393,4 +462,7 @@
 
 .about-content {
     padding: 20px; /* Add padding to the content */
+}
+.active {
+    font-weight:800;
 }

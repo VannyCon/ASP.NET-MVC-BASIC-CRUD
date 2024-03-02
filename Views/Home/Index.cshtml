@@ -1,12 +1,12 @@
 ﻿
-    <div class="container-fluid mainColor">
+    <div class="container-fluid mainColor mb-5">
           <div class="row justify-content-between px-5">
             <div class="col-7 box d-flex align-items-center">
                 <div class="ml-5">
                   <h1 class="text-white home-main-text ">Welcome to <span class="text-main-color">HRMS</span></h1>
                   <h3 class="text-white fw-light"><span class="text-main-color">HRMS</span> is designed to simplify and optimize your human resources management processes.</h3>
                   <h5 class="text-white fw-light">It offers an intuitive interface, advanced features, and customizable options to suit your organization's unique needs.</h5>
-                  <button class="button-60" role="button">START NOW</button>
+                  <a class="button-60 text-white" asp-area="" asp-controller="Account" asp-action="registration">START NOW</a>
                 </div>
               </div>
             <div class="col-5 box">
@@ -35,7 +35,7 @@
                                         </div>
                                     </div>
                                     <div class="col-5 box">
-                                <img src="@Url.Content("~/Content/Images/about.png")" class="img-fluid" alt="Responsive image">
+                                           <img src="@Url.Content("~/Content/Images/about.png")" class="img-fluid" alt="Responsive image">
                                     </div>
                                 </div>
                             </div>
@@ -51,7 +51,7 @@
                                 <div class="row justify-content-between">
                                     <div class="col-7 box d-flex align-items-center pt-5">
                                         <div class="ml-5">
-                                        <h1 class="text-white home-main-text ">Any Concern? Just <span class="text-main-color fw-bold">Contact Us.</span></h1>
+                                    <h1 class="text-white home-secondary-text ">Any Concern? Just <span class="text-main-color home-secondary-text">Contact Us.</span></h1>
                                             <p class="fw-light white-muted my-3">We will do our best to reach you and happily response to your concern</p>
                                             <form>
                                                 <div class="row mb-3">
