@@ -1,53 +1,48 @@
 ﻿@{
     ViewData["Title"] = "Designation";
 }
-<div class="card container my-5 py-5 z-depth-1">
+<div class="rounded-3 container my-5 py-5 z-depth-1 secondarColor">
 
 
     <!--Section: Content-->
-    <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
+    <section class="px-md-5 text-lg-left dark-grey-text">
 
 
         <!--Grid row-->
         <div class="row d-flex justify-content-center mb-4">
 
             <!--Grid column-->
-            <div class="col-md-8 text-center">
+            <div class="col-md-12">
 
-                <h2 class="display-4">Welcome to Designation Page</h2>
-                <h5>by John Alfread Divino</h5>
-                @model IEnumerable<Designation>
-                <div class="justify-content-end d-flex align-items-end">
-                    <a asp-area="" asp-controller="Designation" asp-action="DesignationCreate" type="button" class="btn btn-info btn-icon-text justify-content-end align-items-end m-2">
-                        <i class="mdi mdi-file-check btn-icon-prepend"></i> + ADD
-                    </a>
+                <!-- Inline CSS -->
+                <div class="d-flex justify-content-between">
+                    <h1 class="text-500 my-3">Designation</h1>
+                    <a asp-controller="Designation" asp-action="DesignationCreate" class="button-create d-block mb-3 text-center mx-2 text-decoration-none" type="button">CREATE</a>
                 </div>
-                <table class="table table-bordered table-dark">
+                @model IEnumerable<Designation>
+                <table class="custom-table">
                     <thead>
                         <tr>
-                            <th scope="col">Designation ID</th>
-                            <th scope="col">Designation</th>
+                            <th scope="col">Designation Id</th>
+                            <th scope="col">Designated</th>
                             <th scope="col">First</th>
                             <th scope="col">Last</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var designated in Model){
-                        <tr>
+                        @foreach (var designated in Model)
+                        {
+                            <tr>
                                 <th scope="row">@designated.Designation_Id</th>
                                 <td>@designated.Designated</td>
                                 <td>@designated.First</td>
                                 <td>@designated.Last</td>
-                            <td>
-                                    <a asp-controller="Designation" asp-action="Edit" asp-route-id="@designated.Designation_Id" type="button" class="btn btn-primary btn-icon-text">
-                                        <i class="mdi mdi-file-check btn-icon-prepend"></i> Update
-                                    </a>
-                                    <a asp-controller="Designation" asp-action="Delete" asp-route-id="@designated.Designation_Id" type="button" class="btn btn-danger btn-icon-text">
-                                        <i class="mdi mdi-alert btn-icon-prepend"></i> Delete
-                                    </a>
-                            </td>
-                        </tr>
+                                <td class="d-flex">
+                                    <a asp-controller="Designation" asp-action="Edit" asp-route-id="@designated.Designation_Id" class="button-edit d-block mb-3 text-center mx-2 text-decoration-none" type="button">EDIT</a>
+                                    <a asp-controller="Designation" asp-action="Delete" asp-route-id="@designated.Designation_Id" class="button-delete d-block mb-3 text-center text-decoration-none" type="button">DELETE</a>
+                                </td>
+                            </tr>
                         }
                     </tbody>
                 </table>

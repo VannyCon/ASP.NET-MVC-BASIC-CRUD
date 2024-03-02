@@ -5,28 +5,35 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">Registration</div>
+            <div class="rounded-3 secondarColor p-5">
+                <div class="card-header">
+                    <div class="text-left">
+                        <h1 class="text-500">Create Department</h1>
+
+                    </div>
+                </div>
                 <div class="card-body">
                     <form method="post" asp-controller="Department" asp-action="Create">
-                        <div class="form-group">
-                            <label for="First">Name</label>
-                            <input type="text" name="Name" class="form-control" id="Name" placeholder="Name" required>
+                        <p class="fw-light white-muted m-0">Name</p>
+                        <div class="form-outline form-group mb-3">
+                            <input type="text" name="Name" id="form2Example11" class="myInput white-muted p-4"
+                                   placeholder="Mark Zuckerberg" />
                         </div>
-                        <div class="form-group">
-                            <label for="Last">Manager</label>
-                            <input type="text" name="Manager" class="form-control" id="Manager" placeholder="Manager" required>
+                        <p class="fw-light white-muted m-0">Manager</p>
+                        <div class="form-outline form-group mb-3">
+                            <input type="text" name="Manager" id="form2Example11" class="myInput white-muted p-4"
+                                   placeholder="Manager" />
                         </div>
-                        <div class="form-group">
-                            <label for="Location">Location</label>
-                            <input type="text" name="Location" class="form-control" id="Location" placeholder="Location" required>
+                        <p class="fw-light white-muted m-0">Location</p>
+                        <div class="form-outline form-group mb-3">
+                            <input type="text" name="Location" id="form2Example11" class="myInput white-muted p-4"
+                                   placeholder="Location" />
                         </div>
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="remember">
-                            <label class="form-check-label" for="remember">Remember me</label>
+                        <div class="text-left pt-1 mb-5 pb-1">
+                            <button class="button-full d-block mb-2 text-center p-3" type="submit">Create</button>
                         </div>
-                        <button type="submit" class="btn btn-primary">Create</button>
                     </form>
+                    <a id="departmentLink" class="text-white text-decoration-none" asp-area="" asp-controller="Department" asp-action="Department">← Go Back</a>
                 </div>
             </div>
         </div>

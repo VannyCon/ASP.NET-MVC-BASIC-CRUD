@@ -1,0 +1,468 @@
+﻿.box {
+    height: 500px;
+}
+
+.active-bold {
+    font-weight: bold;
+}
+
+.hrms {
+    font-size: large;
+    font-weight: 800;
+    color: #F85692;
+    font-size: 30px;
+}
+
+.home-main-text {
+    font-size: large;
+    font-weight: 800;
+    color: #F85692;
+    font-size: 70px;
+}
+.home-secondary-text {
+    font-size:larger;
+    font-weight: 900;
+    color: #F85692;
+    font-size: 70px;
+}
+
+
+.text-main-color {
+    color: #F85692;
+}
+
+.mainColor {
+    background-color: #3B3A59;
+}
+
+.secondarColor {
+    background-color: #2D2D47;
+}
+
+.frame-500 {
+    width: 500px;
+    height: 500px;
+}
+
+.white-muted {
+    color: #d7d7d7;
+}
+/* CSS */
+.button-60 {
+    align-items: center;
+    appearance: none;
+    background-color: #ffffff00;
+    border: 1px solid #F85692;
+    border-radius: .375em;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-flex;
+    /* font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif; */
+    font-size: 1rem;
+    height: 2.5em;
+    justify-content: center;
+    line-height: 1.5;
+    padding: calc(.5em - 1px) 1em;
+    position: relative;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: top;
+    white-space: nowrap;
+}
+    .button-60:hover,
+    .button-60:focus {
+        border: 1px solid #ffb1ce;
+        color: #F85692; /* Change the color to white */
+    }
+    .button-create:not(:hover):not(:focus) {
+        color: #ffffff; /* Change the color back to its original color */
+    }
+.button-create {
+    align-items: center;
+    appearance: none;
+    background-color: #ffffff00;
+    border: 1px solid #e44bff;
+    border-radius: .375em;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #e44bff;
+    font-weight: bolder;
+    cursor: pointer;
+    display: inline-flex;
+    /* font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif; */
+    font-size: 1rem;
+    height: 2.5em;
+    justify-content: center;
+    line-height: 1.5;
+    padding: calc(.5em - 1px) 1em;
+    position: relative;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+    .button-create:hover,
+    .button-create:focus {
+        border: 1px solid #eaa5f7;
+        color: #ffffff; /* Change the color to white */
+    }
+
+.button-create:not(:hover):not(:focus) {
+    color: #e44bff; /* Change the color back to its original color */
+}
+.button-edit {
+    align-items: center;
+    appearance: none;
+    background-color: #ffffff00;
+    border: 1px solid #54f6ff;
+    border-radius: .375em;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #54f6ff;
+    font-weight: bolder;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: 1rem;
+    height: 2.5em;
+    justify-content: center;
+    line-height: 1.5;
+    padding: calc(.5em - 1px) 1em;
+    position: relative;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: top;
+    white-space: nowrap;
+}
+    .button-edit:hover,
+    .button-edit:focus {
+        border: 1px solid #ccfcff;
+        color: #ffffff; /* Change the color to white */
+    }
+
+.button-edit:not(:hover):not(:focus) {
+    color: #54f6ff; /* Change the color back to its original color */
+}
+.button-delete {
+    align-items: center;
+    appearance: none;
+    background-color: #ffffff00;
+    border: 1px solid #ff5555;
+    border-radius: .375em;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #ff5555;
+    font-weight: bolder;
+    cursor: pointer;
+    display: inline-flex;
+    /* font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif; */
+    font-size: 1rem;
+    height: 2.5em;
+    justify-content: center;
+    line-height: 1.5;
+    padding: calc(.5em - 1px) 1em;
+    position: relative;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: top;
+    white-space: nowrap;
+}
+    .button-delete:hover,
+    .button-delete:focus {
+        border: 1px solid #fab1b1;
+        color: #ffffff; /* Change the color to white */
+    }
+
+.button-delete:not(:hover):not(:focus) {
+    color: #ff5555; /* Change the color back to its original color */
+}
+.button-full {
+    align-items: center;
+    appearance: none;
+    background-color: #F85692;
+    border: 0px solid #F85692;
+    border-radius: .375em;
+    width: 100%;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #ffffff;
+    font-weight: bolder;
+    cursor: pointer;
+    display: inline-flex;
+    /* font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif; */
+    font-size: 1rem;
+    height: auto;
+    justify-content: center;
+    line-height: 1.5;
+    padding: calc(.5em - 1px) 1em;
+    position: relative;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+.button-secondary-full {
+    align-items: center;
+    appearance: none;
+    background-color: #2D2D47;
+    border: 0px solid #2D2D47;
+    border-radius: .375em;
+    width: 100%;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #ffffff;
+    font-weight: bolder;
+    cursor: pointer;
+    display: inline-flex;
+    /* font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif; */
+    font-size: 1rem;
+    height: auto;
+    justify-content: center;
+    line-height: 1.5;
+    padding: calc(.5em - 1px) 1em;
+    position: relative;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: top;
+    white-space: nowrap;
+}
+/* Full */
+.button-full:active {
+    border-color: #ffffff;
+    outline: 0;
+}
+
+.button-full:focus {
+    border-color: #485fc7;
+    outline: 0;
+}
+
+.button-full:hover {
+    background-color: #f783ae;
+    color: #2D2D47;
+}
+
+.button-full:focus:not(:active) {
+    box-shadow: rgba(72, 95, 199, .25) 0 0 0 .125em;
+}
+
+/* SECONDARY */
+.button-secondary-full:active {
+    border-color: #4a4a4a;
+    outline: 0;
+}
+
+.button-secondary-full:focus {
+    border-color: #485fc7;
+    outline: 0;
+}
+
+.button-secondary-full:hover {
+    background-color: #616195;
+    border-color: #b5b5b5;
+    color: #ffffff;
+}
+
+.button-secondary-full:focus:not(:active) {
+    box-shadow: rgba(72, 95, 199, .25) 0 0 0 .125em;
+}
+/* button-60 */
+.button-60:active {
+    border-color: #4a4a4a;
+    outline: 0;
+}
+
+.button-60:focus {
+    border-color: #485fc7;
+    outline: 0;
+}
+
+.button-60:hover {
+    border-color: #b5b5b5;
+    color: #F85692;
+}
+
+.button-60:focus:not(:active) {
+    box-shadow: rgba(72, 95, 199, .25) 0 0 0 .125em;
+}
+
+.myInput {
+    font-size: 14px;
+    width: 100%;
+    border-radius: 6px;
+    line-height: 1.5;
+    padding: 5px 10px;
+    transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
+    border: 2px solid #3B3A59;
+    color: white;
+    background: #3B3A59;
+    display: block;
+    -webkit-appearance: none;
+    height: 36px;
+    : hover
+{
+    border-color: #F85692;
+}
+
+:focus {
+    border-color: #F85692;
+    background: #F85692;
+}
+
+}
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.select-wrapper::after {
+    content: "▼";
+    font-family: FontAwesome;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    pointer-events: none;
+}
+
+.selected {
+    font-size: 14px;
+    border-radius: 6px;
+    line-height: 1.5;
+    padding: 15px 40px 10px 15px; /* Adjust padding to accommodate the icon */
+    transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
+    border: 2px solid #3B3A59;
+   
+    background: #3B3A59;
+    display: block;
+    -webkit-appearance: none;
+    width: 100%;
+}
+
+
+.myInput2 {
+    font-size: 14px;
+    width: 100%;
+    border-radius: 6px;
+    line-height: 1.5;
+    padding: 5px 20px;
+    transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
+    border: 2px solid #2D2D47;
+    color: white;
+    background: #2D2D47;
+    display: block;
+    height: 36px;
+    : hover
+
+{
+    border-color: #F85692;
+}
+
+:focus {
+    border-color: #F85692;
+    background: #F85692;
+}
+
+}
+/* Unchecked state */
+.form-check-input[type="checkbox"] {
+    background-color: #3B3A59; /* Background color when unchecked */
+    border-color: #F85692; /* Border color when unchecked */
+}
+
+    /* Checked state */
+    .form-check-input[type="checkbox"]:checked {
+        background-color: #F85692; /* Background color when checked */
+        border-color: #F85692; /* Border color when checked */
+    }
+
+        /* Custom color for the check mark */
+        .form-check-input[type="checkbox"]:checked::after {
+            background-color: #3B3A59; /* Color of the check mark when checked */
+        }
+
+.image-auto {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.rounded-right {
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+.rounded-left {
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+
+.text-900 {
+    font-size: larger;
+    font-weight: 800;
+    color: #ffffff;
+    font-size: 60px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.text-500 {
+    font-size: larger;
+    font-weight: 800;
+    color: #ffffff;
+    font-size: 30px;
+}
+
+.custom-table {
+    color: white;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+    .custom-table th, .custom-table td {
+        padding: 8px;
+        border: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .custom-table th {
+        text-align: left;
+        background-color: #f2f2f200;
+    }
+
+    .custom-table tbody tr:nth-child(even) {
+        background-color: #f2f2f200;
+    }
+
+    .custom-table tbody tr:hover {
+        background-color: #f2f2f200;
+    }
+/* Custom CSS for the about section */
+.about-section {
+    margin-top: 80px;
+    height: 600px; /* Set the height of the section */
+}
+
+.about-content {
+    padding: 20px; /* Add padding to the content */
+}
+.active {
+    font-weight:800;
+}
