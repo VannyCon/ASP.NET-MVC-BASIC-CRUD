@@ -8,21 +8,27 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CRUD.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/bootstrap.css" asp-append-version="true" />
+   
 </head>
-<body>
+<body class="mainColor">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-lg navbar-light mainColor p-5 pb-0 ">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">HRMS</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <h1 class="hrms">HRMS</h1>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-white" href="#">Home</a>
                         </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-white" onclick="scrollToSection('about')" href="#">About</a>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-white" onclick="scrollToSection('contact')" href="#">Contact Us</a>
+                        </li>
+                        
                         @if (!string.IsNullOrEmpty(ViewBag.Username))
                         {
                             <li class="nav-item">
@@ -38,41 +44,52 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="UserAccount" asp-action="UserAccount">UserAccount</a>
                             </li>
                         }
-                        
-                            <ul class="nav nav-tabs nav-justified ms-auto" id="myTab" role="tablist">
+                        <ul class="nav nav-tabs nav-justified ms-auto" id="myTab" role="tablist">
                             @if (!string.IsNullOrEmpty(ViewBag.Username))
                             {
-                                <li class="nav-item">
-                                    <a class="btn btn-outline-danger btn-icon-text" id="profile-tab" data-toggle="tab" asp-area="" asp-controller="Account" asp-action="Logout" role="tab" aria-controls="Home" aria-selected="false">Logout</a>
+                                <li>
+                                    <a class="button-60 text-decoration-none border-0" id="profile-tab" data-toggle="tab" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
                                 </li>
                             }
 
                             else
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link" id="home-tab" data-toggle="tab" asp-area="" asp-controller="Account" asp-action="registration" role="tab" aria-controls="Home" aria-selected="true">Registration</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="profile-tab" data-toggle="tab" asp-area="" asp-controller="Account" asp-action="Index" role="tab" aria-controls="Home" aria-selected="false">Login</a>
+                                    <a class="button-60" id="home-tab" data-toggle="tab" asp-area="" asp-controller="Account" asp-action="registration" role="tab" aria-controls="Home" aria-selected="true">Registration</a>
                                 </li>
                             }
-                        </ul>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="container-fluid">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - CRUD - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
+    <footer class="py-3 my-4" style="margin-top: 100px;">
+        <ul class="nav text-white justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="#" class="px-2 text-decoration-none text-white">Home</a></li>
+            <li class="nav-item"><a href="#" class="px-2 text-decoration-none text-white">Features</a></li>
+            <li class="nav-item"><a href="#" class="px-2 text-decoration-none text-white">Pricing</a></li>
+            <li class="nav-item"><a href="#" class="px-2 text-decoration-none text-white">FAQs</a></li>
+            <li class="nav-item"><a href="#" class="px-2 text-decoration-none text-white">About</a></li>
+        </ul>
+        <p class="text-center white-muted">© 2022 Company, Inc</p>
     </footer>
+    <script>
+        function scrollToSection(contact) {
+            var section = document.getElementById(contact);
+            window.scrollTo({
+                top: section.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

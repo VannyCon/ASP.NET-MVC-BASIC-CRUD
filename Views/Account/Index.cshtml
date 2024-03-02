@@ -1,27 +1,61 @@
 ﻿@{
     ViewData["Title"] = "Login";
 }
-
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">Login</div>
-                <div class="card-body">
-                    <!-- Views/Login/Index.cshtml -->
-                    <form method="post" asp-controller="Account" asp-action="Index">
-                        <div class="form-group">
-                            <label for="Email_Account">Email</label>
-                            <input type="email" class="form-control" id="Email_Account" name="Email_Account" placeholder="Enter your email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="Password">Password</label>
-                            <input type="password" class="form-control" id="Password" name="Password" placeholder="Enter Password" required>
-                        </div>
-                        <button type="submit" value="Login" class="btn btn-primary mr-2 mt-2 d-block">Login</button>
-                    </form>
+ <div class="container-fluid">
+    <section class="h-100">
+      <div class="container py-5">
+        <div class="row d-flex justify-content-center align-items-center">
+          <div class="col-xl-10">
+            <div class="rounded-3 secondarColor">
+              <div class="row g-0">
+                            <div class="col-lg-6 image-auto align-items-center d-flex rounded-left" style="background-image: url(@Url.Content("~/Content/Images/front1.jpg")" );">
+                  <div class="text-white px-3 py-4 p-md-5 mx-md-4"> 
+                    <h1 class="mb-4 text-900">DONT HAVE ACCOUNT YET?</h1>
+                    <div class="text-left pt-1 mb-5 pb-1">
+                                        <button class="d-block mb-3 button-secondary-full text-center p-3" asp-area="" asp-controller="Account" asp-action="registration"  type="button">SIGN UP</button>
+                    </div>
+                  </div>
                 </div>
+                                <div class="col-lg-6">
+                  <div class="card-body p-md-5 mx-md-4">
+                    <div class="text-left">
+                      <h1 class="hrms">Sign In</h1>
+                      <h5 class="fw-light white-muted">Welcome back! Please login to your account</h5>
+                    </div>
+                    <form method="post" asp-controller="Account" asp-action="Index">
+                      <p class="fw-light white-muted m-0">Email</p>
+                      <div class="form-outline mb-3">
+                        <input type="email" name="Email_Account" id="form2Example11" class="myInput white-muted p-4"
+                          placeholder="example@gmail.com" />
+                      </div>
+  
+                      <p class="fw-light white-muted m-0">Password</p>
+                      <div class="form-outline mb-3">
+                        <input type="password" name="Password" id="form2Example11" class="myInput white-muted p-4"
+                          placeholder="************" />
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="rememberMeCheckbox">
+                        <label class="form-check-label text-white" for="rememberMeCheckbox">
+                          Remember me
+                        </label>
+                      </div>
+                      <div class="text-left pt-1 mb-5 pb-1">
+                        <button class="button-full d-block mb-3 text-center p-3" type="button">SIGN IN</button>
+                        <a class="fw-light white-muted m-0 text-decoration-none">Forgot password?</a>
+                      </div>
+                      <div class="d-flex align-items-left justify-content-left pb-4">
+                        <p class="fw-light white-muted">New User? </p>
+                        <a class="fw-bold white-muted mx-2 text-decoration-none ml-2"> Sign up</a>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
+    </section>
+  </div>

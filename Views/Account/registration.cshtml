@@ -1,50 +1,78 @@
 ﻿@{
     ViewData["Title"] = "Registration";
 }
-
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">Registration</div>
-                <div class="card-body">
-                    <form method="post" asp-controller="Account" asp-action="Register">
-                        <div class="form-group">
-                            <label for="First">First_Name</label>
-                            <input type="text" name="First_Name" class="form-control" id="First_Name" placeholder="First" required>
+<div class="container-fluid">
+    <section class="h-100">
+        <div class="container py-5">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-xl-10">
+                    <div class="rounded-3 secondarColor">
+                        <div class="row g-0">
+                            <div class="col-lg-6">
+                                <div class="card-body p-md-5 mx-md-4">
+                                    <div class="text-left">
+                                        <h1 class="hrms">Sign Up</h1>
+                                        <h5 class="fw-light white-muted">Welcome back! Please login to your account</h5>
+                                    </div>
+                                    <form method="post" asp-controller="Account" asp-action="Register">
+                                        <div class="row mb-3">
+                                            <div class="col">
+                                                <p class="fw-light white-muted m-0">First</p>
+                                                <input type="text" name="First_Name" class="myInput white-muted p-4" placeholder="First name">
+                                            </div>
+                                            <div class="col">
+                                                <p class="fw-light white-muted m-0">Last</p>
+                                                <input type="text" name="Last_Name" class="myInput white-muted p-4" placeholder="Last name">
+                                            </div>
+                                        </div>
+                                        <p class="fw-light white-muted m-0">Gender</p>
+                                        <div class="form-outline mb-3">
+                                            <input type="text" name="Gender" id="form2Example11" class="myInput white-muted p-4"
+                                                   placeholder="Male" />
+                                        </div>
+                                        <p class="fw-light white-muted m-0">Account</p>
+                                        <div class="form-outline mb-3">
+                                            <input type="text" name="Account" id="form2Example11" class="myInput white-muted p-4"
+                                                   placeholder="Administrator" />
+                                        </div>
+                                        <p class="fw-light white-muted m-0">Email</p>
+                                        <div class="form-outline mb-3">
+                                            <input type="email" name="Email_Account" id="form2Example11" class="myInput white-muted p-4"
+                                                   placeholder="example@gmail.com" />
+                                        </div>
+                                        <p class="fw-light white-muted m-0">Mobile</p>
+                                        <div class="form-outline mb-3">
+                                            <input type="number" name="Mobile" id="form2Example11" class="myInput white-muted p-4"
+                                                   placeholder="09**********" />
+                                        </div>
+                                        <p class="fw-light white-muted m-0">Password</p>
+                                        <div class="form-outline mb-3">
+                                            <input type="password" name="Password" id="form2Example11" class="myInput white-muted p-4"
+                                                   placeholder="************" />
+                                        </div>
+                                        <div class="text-left pt-1 mb-5 pb-1">
+                                            <button class="button-full d-block mb-3 text-center p-3" type="button">SIGN UP</button>
+                                        </div>
+                                        <div class="d-flex align-items-left justify-content-left pb-4">
+                                            <p class="fw-light white-muted">Already have an account?? </p>
+                                            <a class="fw-bold white-muted mx-2 text-decoration-none ml-2"> Sign In Now!</a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 image-auto align-items-center d-flex rounded-right" style="background-image: url(front1.jpg);">
+                                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                                    <h1 class="mb-4 text-900">DO YOU HAVE ALREADY ACCOUNT?</h1>
+                                    <div class="text-left pt-1 mb-5 pb-1">
+                                        <button class="d-block mb-3 button-secondary-full  text-center p-3" type="button">SIGN IN</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="Last_Name">Last_Name</label>
-                            <input type="text" name="Last_Name" class="form-control" id="Last_Name" placeholder="Last" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="Mobile">Mobile</label>
-                            <input type="text" name="Mobile" class="form-control" id="Mobile" placeholder="Mobile" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="Password">Password</label>
-                            <input type="text" name="Password" class="form-control" id="Password" placeholder="Password" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="Email_Account">Email_Account</label>
-                            <input type="email" name="Email_Account" class="form-control" id="Email_Account" placeholder="Email_Account" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="Account">Account</label>
-                            <input type="text" name="Account" class="form-control" id="Account" placeholder="Account" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="Gender">Gender</label>
-                            <input type="text" name="Gender" class="form-control" id="Gender" placeholder="Gender" required>
-                        </div>
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="remember">
-                            <label class="form-check-label" for="remember">Remember me</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Register</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </div>
+    </section>
+  </div>
