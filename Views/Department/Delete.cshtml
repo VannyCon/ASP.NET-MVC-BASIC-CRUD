@@ -6,26 +6,44 @@
 <!-- _DeleteConfirmation.cshtml -->
 @model Department
 
-<h2>Delete Employee</h2>
-<form asp-controller="Department" asp-action="DeleteConfirmed" asp-route-id="@Model.Department_Id" method="post">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <input type="text" class="form-control" readonly asp-for="Department_Id" />
 
-    <div class="form-group">
-        <label asp-for="Name" class="control-label"></label>
-        <input asp-for="Name" readonly class="form-control" />
-        <span asp-validation-for="Name" class="text-danger"></span>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="rounded-3 secondarColor p-5">
+                <div class="card-header">
+                    <div class="text-left">
+                        <h1 class="text-500">Delete Department</h1>
+                      
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form asp-controller="Department" asp-action="DeleteConfirmed" asp-route-id="@Model.Department_Id" method="post">
+                        <label asp-for="Name" class="fw-light white-muted m-0">Name</label>
+                        <div class="form-outline form-group mb-3">
+                            <input asp-for="Name" type="text" readonly name="Name" id="form2Example11" class="myInput white-white p-4" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <label asp-for="Manager" class="fw-light white-muted m-0">Name</label>
+                        <div class="form-outline form-group mb-3">
+                            <input asp-for="Manager" type="text" readonly name="Manager" id="form2Example11" class="myInput white-white p-4" />
+                            <span asp-validation-for="Manager" class="text-danger"></span>
+                        </div>
+
+                        <label asp-for="Location" class="fw-light white-muted m-0">Name</label>
+                        <div class="form-outline form-group mb-3">
+                            <input asp-for="Location" type="text" readonly name="v" id="form2Example11" class="myInput white-white p-4" />
+                            <span asp-validation-for="Location" class="text-danger"></span>
+                        </div>
+
+                        <div class="text-left pt-1 mb-5 pb-1">
+                            <button class="button-full d-block mb-2 text-center p-3" type="submit">Delete</button>
+                        </div>
+                    </form>
+                    <a id="departmentLink" class="text-white text-decoration-none" asp-area="" asp-controller="Department" asp-action="Department">← Go Back</a>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label asp-for="Manager" class="control-label"></label>
-        <input asp-for="Manager" readonly class="form-control" />
-        <span asp-validation-for="Manager" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Location" class="control-label"></label>
-        <input asp-for="Location" readonly class="form-control" />
-        <span asp-validation-for="Location" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-danger m-2">Delete</button>
-</form>
-<a asp-action="Department">Back to List</a>
+</div>

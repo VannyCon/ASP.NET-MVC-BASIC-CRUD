@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = "Registration";
+}
+<div class="container-fluid">
+    <section class="h-100">
+        <div class="container py-5">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-xl-10">
+                    <div class="rounded-3 secondarColor">
+                        <div class="row g-0">
+                            <div class="col-lg-6">
+                                <div class="card-body p-md-5 mx-md-4">
+                                    <div class="text-left">
+                                        <h1 class="hrms">Sign Up</h1>
+                                        <h5 class="fw-light white-muted">Welcome back! Please login to your account</h5>
+                                    </div>
+                                    <form method="post" asp-controller="Account" asp-action="Register">
+                                        <div class="row mb-3">
+                                            <div class="col">
+                                                <p class="fw-light white-muted m-0">First</p>
+                                                <input type="text" name="First_Name" class="myInput white-muted p-4" placeholder="First name">
+                                            </div>
+                                            <div class="col">
+                                                <p class="fw-light white-muted m-0">Last</p>
+                                                <input type="text" name="Last_Name" class="myInput white-muted p-4" placeholder="Last name">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col">
+                                                <p class="fw-light white-muted m-0">Gender</p>
+                                                <div class="select-wrapper">
+                                                    <select name="Gender" class="selected white-muted">
+                                                        <option value="">Select an option </option>
+                                                        <option value="Male">Male</option>
+                                                        <option value="Female">Female</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <p class="fw-light white-muted m-0">Account</p>
+                                                <div class="form-outline">
+                                                    <input type="text" name="Account" id="form2Example11" class="myInput white-muted p-4" placeholder="Administrator" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                       
+                                        <p class="fw-light white-muted m-0">Email</p>
+                                        <div class="form-outline mb-3">
+                                            <input type="email" name="Email_Account" id="form2Example11" class="myInput white-muted p-4"
+                                                   placeholder="example@gmail.com" />
+                                        </div>
+                                        <p class="fw-light white-muted m-0">Mobile</p>
+                                        <div class="form-outline mb-3">
+                                            <input type="number" name="Mobile" id="form2Example11" class="myInput white-muted p-4"
+                                                   minlength="11" maxlength="11" required placeholder="09**********" />
+                                        </div>
+                                        <p class="fw-light white-muted m-0">Password</p>
+                                        <div class="form-outline mb-3">
+                                            <input type="password" name="Password" id="form2Example11" class="myInput white-muted p-4"
+                                                   placeholder="************" />
+                                        </div>
+                                        <div class="text-left pt-1 mb-3 pb-1">
+
+                                            <button class="button-full d-block mb-3 text-center p-3" type="submit">SIGN UP</button>
+                                        </div>
+                                        <div class="d-flex align-items-left justify-content-left pb-4">
+                                            <p class="fw-light white-muted">Already have an account?? </p>
+
+                                            <a class="fw-bold white-muted mx-2 text-decoration-none ml-2"> Sign In Now!</a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 image-auto align-items-center d-flex rounded-right" style="background-image: url(@Url.Content("~/Content/Images/front1.jpg"))">
+                                <div class="text-white px-3 py-4 p-md-3 mx-md-4">
+                                    <h1 class="mb-4 text-900">DO YOU HAVE ALREADY ACCOUNT?</h1>
+                                    <div class="text-left pt-1 mb-5 pb-1">
+                                        <a class="mb-3 button-secondary-full text-decoration-none text-center p-3 text-white" asp-area="" asp-controller="Account" asp-action="Index">SIGN IN</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+    </section>
+  </div>

@@ -1,4 +1,5 @@
-﻿@*
+﻿
+        @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
@@ -6,26 +7,43 @@
 <!-- _DeleteConfirmation.cshtml -->
 @model Designation
 
-<h2>Delete Employee</h2>
-<form asp-controller="Designation" asp-action="DeleteConfirmed" asp-route-id="@Model.Designation_Id" method="post">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <input type="text" readonly class="form-control" asp-for="Designation_Id" />
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="rounded-3 secondarColor p-5">
+                <div class="card-header">
+                    <div class="text-left">
+                        <h1 class="text-500">Delete Designation</h1>
+                      
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form asp-controller="Designation" asp-action="DeleteConfirmed" asp-route-id="@Model.Designation_Id" method="post">
+                        <label asp-for="Designated" class="fw-light white-muted m-0">Designated</label>
+                        <div class="form-outline form-group mb-3">
+                            <input asp-for="Designated" type="text" readonly name="Designated" id="form2Example11" class="myInput white-white p-4" />
+                            <span asp-validation-for="Designated" class="text-danger"></span>
+                        </div>
 
-        <div class="form-group">
-            <label asp-for="Designated" class="control-label"></label>
-        <input asp-for="Designated" readonly class="form-control" />
-            <span asp-validation-for="Designated" class="text-danger"></span>
+                        <label asp-for="First" class="fw-light white-muted m-0">Name</label>
+                        <div class="form-outline form-group mb-3">
+                            <input asp-for="First" type="text" readonly name="First" id="form2Example11" class="myInput white-white p-4" />
+                            <span asp-validation-for="First" class="text-danger"></span>
+                        </div>
+
+                        <label asp-for="Last" class="fw-light white-muted m-0">Name</label>
+                        <div class="form-outline form-group mb-3">
+                            <input asp-for="Last" type="text" readonly name="Last" id="form2Example11" class="myInput white-white p-4" />
+                            <span asp-validation-for="Last" class="text-danger"></span>
+                        </div>
+
+                        <div class="text-left pt-1 mb-5 pb-1">
+                            <button class="button-full d-block mb-2 text-center p-3" type="submit">Delete</button>
+                        </div>
+                    </form>
+                    <a id="departmentLink" class="text-white text-decoration-none" asp-area="" asp-controller="Designation" asp-action="Designation">← Go Back</a>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label asp-for="First" class="control-label"></label>
-        <input asp-for="First" readonly class="form-control" />
-            <span asp-validation-for="First" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="Last" class="control-label"></label>
-        <input asp-for="Last" readonly class="form-control" />
-            <span asp-validation-for="Last" class="text-danger"></span>
-        </div>
-    <button type="submit" class="btn btn-danger m-2">Delete</button>
-</form>
-<a asp-action="Designation">Back to List</a>
+    </div>
+</div>

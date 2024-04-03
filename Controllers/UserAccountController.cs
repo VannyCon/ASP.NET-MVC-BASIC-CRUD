@@ -13,90 +13,152 @@ namespace CRUD.Controllers
         }
         public IActionResult UserAccountCreate()
         {
-            return View();
+            ViewBag.Username = HttpContext.Session.GetString("username");
+            if (!string.IsNullOrEmpty(ViewBag.Username))
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Account");
+            }
         }
         // CREATE
         [HttpPost]
         public IActionResult userCreate(UserAccount userAcc)
         {
-            if (ModelState.IsValid)
+            ViewBag.Username = HttpContext.Session.GetString("username");
+            if (!string.IsNullOrEmpty(ViewBag.Username))
             {
-                // Add user details to the database
-                _context.UserAccount.Add(userAcc);
-                _context.SaveChanges();
-                // Redirect to a success page or another action
-                return RedirectToAction("UserAccount", "UserAccount");
+                if (ModelState.IsValid)
+                {
+                    // Add user details to the database
+                    _context.UserAccount.Add(userAcc);
+                    _context.SaveChanges();
+                    // Redirect to a success page or another action
+                    return RedirectToAction("UserAccount", "UserAccount");
+                }
+
+                // If ModelState is not valid, redisplay the registration form with validation errors
+                return RedirectToAction("UserAccountCreate", "UserAccount");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Account");
             }
 
-            // If ModelState is not valid, redisplay the registration form with validation errors
-            return RedirectToAction("UserAccountCreate", "UserAccount");
         }
         // READ
         public IActionResult UserAccount()
         {
-            var userAcc = _context.UserAccount.ToList();
-            return View(userAcc);
+            ViewBag.Username = HttpContext.Session.GetString("username");
+            if (!string.IsNullOrEmpty(ViewBag.Username))
+            {
+                var userAcc = _context.UserAccount.ToList();
+                return View(userAcc);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Account");
+            }
+
         }
         // UPDATE
         public IActionResult Edit(int? id)
         {
-            if (id == null)
+            ViewBag.Username = HttpContext.Session.GetString("username");
+            if (!string.IsNullOrEmpty(ViewBag.Username))
             {
-                return NotFound();
+                if (id == null)
+                {
+                    return NotFound();
+                }
+
+                var userAcc = _context.UserAccount.Find(id);
+                if (userAcc == null)
+                {
+                    return NotFound();
+                }
+                return View(userAcc);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Account");
             }
 
-            var userAcc = _context.UserAccount.Find(id);
-            if (userAcc == null)
-            {
-                return NotFound();
-            }
-            return View(userAcc);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, UserAccount userAcc)
         {
-            if (id != userAcc.UserAccount_Id)
+            ViewBag.Username = HttpContext.Session.GetString("username");
+            if (!string.IsNullOrEmpty(ViewBag.Username))
             {
-                return NotFound();
+                if (id != userAcc.UserAccount_Id)
+                {
+                    return NotFound();
+                }
+
+                if (ModelState.IsValid)
+                {
+                    _context.Update(userAcc);
+                    _context.SaveChanges();
+                    return RedirectToAction(nameof(UserAccount));
+                }
+                return View(userAcc);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Account");
             }
 
-            if (ModelState.IsValid)
-            {
-                _context.Update(userAcc);
-                _context.SaveChanges();
-                return RedirectToAction(nameof(UserAccount));
-            }
-            return View(userAcc);
         }
 
         // DELETE
         public IActionResult Delete(int id)
         {
-            var userAccount = _context.UserAccount.Find(id);
-            _context.UserAccount.Remove(userAccount);
-            if (userAccount == null)
+            ViewBag.Username = HttpContext.Session.GetString("username");
+            if (!string.IsNullOrEmpty(ViewBag.Username))
             {
-                return NotFound();
+                var userAccount = _context.UserAccount.Find(id);
+                _context.UserAccount.Remove(userAccount);
+                if (userAccount == null)
+                {
+                    return NotFound();
+                }
+
+                return View(userAccount);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Account");
             }
 
-            return View(userAccount);
         }
 
         [HttpPost, ActionName("DeleteConfirmed")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            var userAccount = _context.UserAccount.Find(id);
-            if (userAccount == null)
+            ViewBag.Username = HttpContext.Session.GetString("username");
+            if (!string.IsNullOrEmpty(ViewBag.Username))
             {
-                return NotFound();
+                var userAccount = _context.UserAccount.Find(id);
+                if (userAccount == null)
+                {
+                    return NotFound();
+                }
+
+                _context.UserAccount.Remove(userAccount);
+                _context.SaveChanges();
+
+                return RedirectToAction(nameof(UserAccount));
+            }
+            else
+            {
+                return RedirectToAction("Index", "Account");
             }
 
-            _context.UserAccount.Remove(userAccount);
-            _context.SaveChanges();
-
-            return RedirectToAction(nameof(UserAccount));
         }
     }
 }

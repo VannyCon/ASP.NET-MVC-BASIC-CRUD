@@ -5,44 +5,47 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">Registration</div>
+            <div class="rounded-3 secondarColor p-5">
+                <div class="card-header">
+                    <div class="text-left">
+                        <h1 class="text-500">Create User Account</h1>
+                    </div>
+                </div>
                 <div class="card-body">
                     <form method="post" asp-controller="UserAccount" asp-action="userCreate">
-                        <div class="form-group">
-                            <label for="First">First_Name</label>
-                            <input type="text" name="First_Name" class="form-control" id="First_Name" placeholder="First" required>
+                        <p class="fw-light white-muted m-0">First Name</p>
+                        <div class="form-outline form-group mb-3">
+                            <input type="text" name="First_Name" id="First_Name" class="myInput white-muted p-4" placeholder="Mark" />
                         </div>
-                        <div class="form-group">
-                            <label for="Last_Name">Last_Name</label>
-                            <input type="text" name="Last_Name" class="form-control" id="Last_Name" placeholder="Last" required>
+                        <p class="fw-light white-muted m-0">Last Name</p>
+                        <div class="form-outline form-group mb-3">
+                            <input type="text" name="Last_Name" id="Last_Name" class="myInput white-muted p-4" placeholder="Zuckerberg" />
                         </div>
-                        <div class="form-group">
-                            <label for="Mobile">Mobile</label>
-                            <input type="text" name="Mobile" class="form-control" id="Mobile" placeholder="Mobile" required>
+                        <p class="fw-light white-muted m-0">Mobile</p>
+                        <div class="form-outline form-group mb-3">
+                            <input type="number" name="Mobile" id="Mobile" class="myInput white-muted p-4" placeholder="Mobile" />
                         </div>
-                        <div class="form-group">
-                            <label for="Password">Password</label>
-                            <input type="text" name="Password" class="form-control" id="Password" placeholder="Password" required>
+                        <p class="fw-light white-muted m-0">Password</p>
+                        <div class="form-outline form-group mb-3">
+                            <input type="text" name="Password" id="Password" class="myInput white-muted p-4" placeholder="Password" />
                         </div>
-                        <div class="form-group">
-                            <label for="Email_Account">Email_Account</label>
-                            <input type="email" name="Email_Account" class="form-control" id="Email_Account" placeholder="Email_Account" required>
+                        <p class="fw-light white-muted m-0">Email Account</p>
+                        <div class="form-outline form-group mb-3">
+                            <input type="text" name="Email_Account" id="Email_Account" class="myInput white-muted p-4" placeholder="example@gmail.com" />
                         </div>
-                        <div class="form-group">
-                            <label for="Account">Account</label>
-                            <input type="text" name="Account" class="form-control" id="Account" placeholder="Account" required>
+                        <p class="fw-light white-muted m-0">Account</p>
+                        <div class="form-outline form-group mb-3">
+                            <input type="text" name="Account" id="Account" class="myInput white-muted p-4" placeholder="Manager" />
                         </div>
-                        <div class="form-group">
-                            <label for="Gender">Gender</label>
-                            <input type="text" name="Gender" class="form-control" id="Gender" placeholder="Gender" required>
+                        <p class="fw-light white-muted m-0">Gender</p>
+                        <div class="form-outline form-group mb-3">
+                            <input type="text" name="Gender" id="Gender" class="myInput white-muted p-4" placeholder="Male" />
                         </div>
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="remember">
-                            <label class="form-check-label" for="remember">Remember me</label>
+                        <div class="text-left pt-1 mb-5 pb-1">
+                            <button class="button-full d-block mb-2 text-center p-3" type="submit">Create</button>
                         </div>
-                        <button type="submit" class="btn btn-primary">Create</button>
                     </form>
+                    <a id="departmentLink" class="text-white text-decoration-none" asp-area="" asp-controller="UserAccount" asp-action="UserAccount">← Go Back</a>
                 </div>
             </div>
         </div>

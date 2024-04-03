@@ -1,27 +1,25 @@
 ﻿@{
     ViewData["Title"] = "Employee";
 }
-<div class="card container my-5 py-5 z-depth-1">
+
+<div class="rounded-3 secondarColor container my-5 py-5 z-depth-1">
 
 
-    <!--Section: Content-->
-    <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
+        <!--Section: Content-->
+        <section class="text-lg-left px-5 dark-grey-text">
 
 
-        <!--Grid row-->
-        <div class="row d-flex justify-content-center mb-4">
+            <!--Grid row-->
+            <div class="row d-flex justify-content-center mb-4">
 
-            <!--Grid column-->
-            <div class="col-md-12 text-center">
-                <h2 class="display-4">Welcome to Employee Page</h2>
-                <h5>by Ivan R. Contrevida</h5>
-                <div class="justify-content-end d-flex align-items-end">
-                    <a asp-area="" asp-controller="Employee" asp-action="EmployeeCreate" type="button" class="btn btn-outline-primary btn-icon-text justify-content-end align-items-end m-2">
-                        <i class="mdi mdi-file-check btn-icon-prepend"></i> + ADD
-                    </a>
+                <!--Grid column-->
+            <div class="col-md-12" text-center>
+                <div class="d-flex justify-content-between">
+                    <h1 class="text-500 my-3">Employee</h1>
+                    <a asp-controller="Employee" asp-action="EmployeeCreate" class="button-create d-block mb-3 text-center mx-2 text-decoration-none" type="button">CREATE</a>
                 </div>
                 @model IEnumerable<Employee>
-                <table class="table table-striped table-bordered">
+                <table class="custom-table">
                     <thead>
                         <tr>
                             <th scope="col">Employee Id</th>
@@ -34,37 +32,35 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var employee in Model)
-                        {
                         <tr>
+                            @foreach (var employee in Model)
+                            {
+                            <tr>
                                 <th scope="row">@employee.Employee_Id</th>
-                            <td>@employee.First</td>
-                            <td>@employee.Last</td>
-                            <td>@employee.Birthday</td>
-                            <td>@employee.Gender</td>
-                            <td>@employee.Position</td>
-                            <td>
-                                    <a asp-controller="Employee" asp-action="Edit" asp-route-id="@employee.Employee_Id" type="button" class="btn btn-outline-info btn-icon-text">
-                                    <i class="mdi mdi-file-check btn-icon-prepend"></i> Update
-                                </a>
-                                    <a asp-controller="Employee"  asp-action="Delete" asp-route-id="@employee.Employee_Id" type="button" class="btn btn-outline-danger btn-icon-text">
-                                    <i class="mdi mdi-alert btn-icon-prepend"></i> Delete
-                                </a>
-                            </td>
-                        </tr>
-                      }
+                                <td>@employee.First</td>
+                                <td>@employee.Last</td>
+                                <td>@employee.Birthday</td>
+                                <td>@employee.Gender</td>
+                                <td>@employee.Position</td>
+                                <td class="d-flex">
+                                    <a asp-controller="Employee" asp-action="Edit" asp-route-id="@employee.Employee_Id" class="button-edit d-block mb-3 text-center mx-2 text-decoration-none" type="button">EDIT</a>
+                                    <a asp-controller="Employee" asp-action="Delete" asp-route-id="@employee.Employee_Id" class="button-delete d-block mb-3 text-center text-decoration-none" type="button">DELETE</a>
+                                </td>
+                            </tr>
+                            }
                     </tbody>
                 </table>
 
+                </div>
+                <!--Grid column-->
+
             </div>
-            <!--Grid column-->
-
-        </div>
-        <!--Grid row-->
+            <!--Grid row-->
 
 
-    </section>
-    <!--Section: Content-->
+        </section>
+        <!--Section: Content-->
 
 
-</div>
+    </div>
+

@@ -16,92 +16,156 @@ namespace CRUD.Controllers
         }
         public IActionResult EmployeeCreate()
         {
-            return View();
+            ViewBag.Username = HttpContext.Session.GetString("username");
+            if (!string.IsNullOrEmpty(ViewBag.Username))
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Account");
+            }
         }
         // CREATE
         [HttpPost]
         public IActionResult Create(Employee employee)
         {
-            if (ModelState.IsValid)
+            ViewBag.Username = HttpContext.Session.GetString("username");
+            if (!string.IsNullOrEmpty(ViewBag.Username))
             {
-                // Add user details to the database
-                _context.Employee.Add(employee);
-                _context.SaveChanges();
-                // Redirect to a success page or another action
-                return RedirectToAction("Employee", "Employee");
-            }
+                if (ModelState.IsValid)
+                {
+                    // Add user details to the database
+                    _context.Employee.Add(employee);
+                    _context.SaveChanges();
+                    // Redirect to a success page or another action
+                    return RedirectToAction("Employee", "Employee");
+                }
 
-            // If ModelState is not valid, redisplay the registration form with validation errors
-            return RedirectToAction("EmployeeCreate", "Employee");
+                // If ModelState is not valid, redisplay the registration form with validation errors
+                return RedirectToAction("EmployeeCreate", "Employee");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Account");
+            }
+           
         }
         // READ
         public IActionResult Employee()
         {
-            var employee = _context.Employee.ToList();
-            return View(employee);
+            ViewBag.Username = HttpContext.Session.GetString("username");
+
+            if (!string.IsNullOrEmpty(ViewBag.Username))
+            {
+                var employee = _context.Employee.ToList();
+                return View(employee);
+            }
+            else {
+                return RedirectToAction("Index", "Account");
+            }
+            
         }
+
         // UPDATE
         public IActionResult Edit(int? id)
         {
-            if (id == null)
+            ViewBag.Username = HttpContext.Session.GetString("username");
+            if (!string.IsNullOrEmpty(ViewBag.Username))
             {
-                return NotFound();
-            }
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-            var employee = _context.Employee.Find(id);
-            if (employee == null)
-            {
-                return NotFound();
+                var employee = _context.Employee.Find(id);
+                if (employee == null)
+                {
+                    return NotFound();
+                }
+                return View(employee);
             }
-            return View(employee);
+            else
+            {
+                return RedirectToAction("Index", "Account");
+            }
+ 
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, Employee employee)
         {
-            if (id != employee.Employee_Id)
+            ViewBag.Username = HttpContext.Session.GetString("username");
+            if (!string.IsNullOrEmpty(ViewBag.Username))
             {
-                return NotFound();
+                if (id != employee.Employee_Id)
+                {
+                    return NotFound();
+                }
+
+                if (ModelState.IsValid)
+                {
+                    _context.Update(employee);
+                    _context.SaveChanges();
+                    return RedirectToAction(nameof(Employee));
+                }
+                return View(employee);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Account");
             }
 
-            if (ModelState.IsValid)
-            {
-                _context.Update(employee);
-                _context.SaveChanges();
-                return RedirectToAction(nameof(Employee));
-            }
-            return View(employee);
         }
 
 
         // DELETE
         public IActionResult Delete(int id)
         {
-            var employee = _context.Employee.Find(id);
-            _context.Employee.Remove(employee);
-            if (employee == null)
+            ViewBag.Username = HttpContext.Session.GetString("username");
+            if (!string.IsNullOrEmpty(ViewBag.Username))
             {
-                return NotFound();
+                var employee = _context.Employee.Find(id);
+                _context.Employee.Remove(employee);
+                if (employee == null)
+                {
+                    return NotFound();
+                }
+
+                return View(employee);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Account");
             }
 
-            return View(employee);
         }
 
         [HttpPost, ActionName("DeleteConfirmed")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            var employee = _context.Employee.Find(id);
-            if (employee == null)
+            ViewBag.Username = HttpContext.Session.GetString("username");
+            if (!string.IsNullOrEmpty(ViewBag.Username))
             {
-                return NotFound();
+                var employee = _context.Employee.Find(id);
+                if (employee == null)
+                {
+                    return NotFound();
+                }
+
+                _context.Employee.Remove(employee);
+                _context.SaveChanges();
+
+                return RedirectToAction(nameof(Employee));
+            }
+            else
+            {
+                return RedirectToAction("Index", "Account");
             }
 
-            _context.Employee.Remove(employee);
-            _context.SaveChanges();
 
-            return RedirectToAction(nameof(Employee));
         }
 
 
